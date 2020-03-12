@@ -1,0 +1,86 @@
+{
+  "dashboard": {
+    "id": 1104993,
+    "title": "AWS Workshop",
+    "description": "",
+    "icon": "bar-chart",
+    "created_at": "2020-02-13T18:38:47Z",
+    "updated_at": "2020-02-20T19:15:19Z",
+    "visibility": "all",
+    "editable": "editable_by_all",
+    "owner_email": "brian.thomason@gmail.com",
+    "metadata": {
+      "version": 1
+    },
+    "widgets": [
+      {
+        "visualization": "facet_pie_chart",
+        "layout": {
+          "width": 3,
+          "height": 1,
+          "row": 1,
+          "column": 1
+        },
+        "widget_id": 15410284,
+        "data": [
+          {
+            "nrql": "FROM Transaction SELECT count(request.uri) SINCE 1 week ago LIMIT MAX FACET request.uri"
+          }
+        ],
+        "presentation": {
+          "title": "URI Endpoint Requests",
+          "notes": null,
+          "drilldown_dashboard_id": null
+        }
+      },
+      {
+        "visualization": "uniques_list",
+        "layout": {
+          "width": 2,
+          "height": 1,
+          "row": 2,
+          "column": 1
+        },
+        "widget_id": 15410672,
+        "data": [
+          {
+            "nrql": "FROM Transaction SELECT uniques(containerId) FACET host SINCE 7 days ago"
+          }
+        ],
+        "presentation": {
+          "title": "Containers by Host",
+          "notes": null
+        }
+      },
+      {
+        "visualization": "billboard",
+        "layout": {
+          "width": 1,
+          "height": 1,
+          "row": 2,
+          "column": 3
+        },
+        "widget_id": 15410673,
+        "data": [
+          {
+            "nrql": "FROM Transaction SELECT latest(request.headers.host) AS 'Current ELB URI' WHERE request.headers.host LIKE '%elb%' SINCE 1 week ago"
+          }
+        ],
+        "presentation": {
+          "title": "Fargate ELB",
+          "notes": null,
+          "threshold": {
+            "red": null,
+            "yellow": null
+          }
+        }
+      }
+    ],
+    "filter": {
+      "event_types": [
+        "Transaction"
+      ],
+      "attributes": []
+    }
+  }
+}
