@@ -8,10 +8,9 @@ With New Relic's Java agent, you can track everything from performance issues to
 
 There are two required files for installation:
 
-<ul>
- <li><b><i>newrelic.jar</i></b>: This contains the agent class files.</li>
- <li><b><i>newrelic.yml</i></b>: This contains configuration information for the New Relic agent, including your license key, application name, etc.
-</ul>
+* <b><i>newrelic.jar</i></b>: This contains the agent class files.</li>
+
+* <b><i>newrelic.yml</i></b>: This contains configuration information for the New Relic agent, including your license key, application name, etc.
 
 First, push the application to the CodeCommit repo.  The following sets a new origin for the application repo to CodeCommit unicorn-store, configures a credential helper needed for CodeCommit, and pushes the source code to the repo.  This step is necessary for an automated pipeline as CodeBuild will build the application directly from this repo.
 
@@ -27,7 +26,7 @@ git push origin master
 If successful, you should see a similar message to the one below.
 {{% /notice %}}
 
-<pre>
+```text
 Counting objects: 9525, done.
 Compressing objects: 100% (5900/5900), done.
 Writing objects: 100% (9525/9525), 33.75 MiB | 2.65 MiB/s, done.
@@ -35,7 +34,7 @@ Total 9525 (delta 3240), reused 9525 (delta 3240)
 remote: processing 
 To https://git-codecommit.us-west-2.amazonaws.com/v1/repos/modernization-workshop
  * [new branch]      master -> master
-</pre>
+```
 
 Next, download the <b><i>newrelic.jar</i></b> file:
 

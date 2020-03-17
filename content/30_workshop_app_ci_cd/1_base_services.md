@@ -25,8 +25,9 @@ aws cloudformation create-stack --stack-name WorkshopServices --template-body fi
 until [[ `aws cloudformation describe-stacks --stack-name "WorkshopServices" --query "Stacks[0].[StackStatus]" --output text` == "CREATE_COMPLETE" ]]; do  echo "The stack is NOT in a state of CREATE_COMPLETE at `date`";   sleep 30; done && echo "The Stack is built at `date` - Please proceed"
 ```
 
-The output should look like the window below
-<pre>
+The output should look like the window below:
+
+```text
 The stack is NOT in a state of CREATE_COMPLETE at Sun Sep  8 05:53:33 UTC 2019
 The Stack is built at Sun Sep  8 05:54:04 UTC 2019 - Please proceed 
-</pre>
+```

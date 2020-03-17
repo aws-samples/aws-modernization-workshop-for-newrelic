@@ -18,7 +18,7 @@ until [[ `aws cloudformation describe-stacks --stack-name "WorkshopECS" --query 
 This step takes approximately 3 minutes and if successfully, you should see the message as below.
 {{% /notice %}}
 
-<pre>
+```text
 The stack is NOT in a state of CREATE_COMPLETE at Sun Aug  4 05:34:25 UTC 2019
 The stack is NOT in a state of CREATE_COMPLETE at Sun Aug  4 05:34:55 UTC 2019
 The stack is NOT in a state of CREATE_COMPLETE at Sun Aug  4 05:35:26 UTC 2019
@@ -26,7 +26,7 @@ The stack is NOT in a state of CREATE_COMPLETE at Sun Aug  4 05:35:57 UTC 2019
 The stack is NOT in a state of CREATE_COMPLETE at Sun Aug  4 05:36:27 UTC 2019
 The stack is NOT in a state of CREATE_COMPLETE at Sun Aug  4 05:36:58 UTC 2019
 The Stack is built at Sun Aug  4 05:37:28 UTC 2019 - Please proceed
-</pre>
+```
 
 To test, run the following query and copy the URL you obtain from the output into the address bar of a web browser.  You should see something similar to the image below.
 
