@@ -8,7 +8,7 @@ weight: 1
 
 ### Welcome
 
-    In this workshop, you will learn how to add Observability to a CI/CD pipeline of a dockerized Java application using AWS CodeCommit, AWS CodeBuid, AWS CodePipeline, and New Relic One. The modules contained in this workshop will provide you with step-by-step instructions for committing, building, testing, deploying, and monitoring software in an automation fashion. 
+In this workshop, you will learn how to add Observability to a CI/CD pipeline of a dockerized Java application using AWS CodeCommit, AWS CodeBuid, AWS CodePipeline, and New Relic One. The modules contained in this workshop will provide you with step-by-step instructions for committing, building, testing, deploying, and monitoring software in an automation fashion. 
 
 ### Objectives
 - Gain familiarity with the workflow of a modern application
@@ -26,13 +26,13 @@ weight: 1
 
 ### Sample reference architecture
 
-    At the conclusion of this workshop, you will end up with various AWS services provisioned in your AWS account. The following diagram illustrates some of these services and is intended as a sample reference architecture.
+At the conclusion of this workshop, you will end up with various AWS services provisioned in your AWS account. The following diagram illustrates some of these services and is intended as a sample reference architecture.
 
 ![Reference Architecture](/images/aws-pipeline.png)
 
 ### Workshop flow
 
-    Each section or module contained in this workshop is designed to guide you through each step of the process to build the architecture referenced above. This is accomplished by using AWS Cloud 9 as our starting point along with a `git clone` of the content from our repository. Everything you need is provided to you including sample code, AWS CloudFormation templates, and detailed instructions. We will be using the AWS CLI from our Cloud9 instance to deploy the CloudFormation templates and build out our environment. 
+Each section or module contained in this workshop is designed to guide you through each step of the process to build the architecture referenced above. This is accomplished by using AWS Cloud 9 as our starting point along with a `git clone` of the content from our repository. Everything you need is provided to you including sample code, AWS CloudFormation templates, and detailed instructions. We will be using the AWS CLI from our Cloud9 instance to deploy the CloudFormation templates and build out our environment. 
 
 
 {{% notice warning %}}
