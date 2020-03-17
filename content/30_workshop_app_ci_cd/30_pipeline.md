@@ -44,11 +44,11 @@ until [[ `aws cloudformation describe-stacks --stack-name "WorkshopPipeline" --q
 This step takes approximately 1 minute and if successful, you should see the message as below.
 {{% /notice %}}
 
-<pre>
+```text
 The stack is NOT in a state of CREATE_COMPLETE at Sun Aug  4 05:46:27 UTC 2019
 The stack is NOT in a state of CREATE_COMPLETE at Sun Aug  4 05:46:58 UTC 2019
 The Stack is built at Sun Aug  4 05:47:29 UTC 2019 - Please proceed
-</pre>
+```
 
 At this point you should have a fully functioning CI/CD CodePipeline.  If you head over to CodePipeline in the AWS console and click on the pipeline that begins with the name **WorkshopPipeline-Pipeline** you will see a similar screen to the one below.  
 

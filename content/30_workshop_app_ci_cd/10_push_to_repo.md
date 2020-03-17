@@ -24,7 +24,7 @@ If you watch the screen you should see the docker image build process animating 
 If successful, you should see the message as below.
 {{% /notice %}}
 
-<pre>
+```text
 The push refers to repository [1234567891011.dkr.ecr.us-west-2.amazonaws.com/modernization-workshop]
 8d2f7b95f78d: Pushed 
 82852e5eaa9d: Pushed 
@@ -32,5 +32,4 @@ The push refers to repository [1234567891011.dkr.ecr.us-west-2.amazonaws.com/mod
 aa90bcce39de: Pushed 
 d9ff549177a9: Pushed 
 latest: digest: sha256:4229b5fe142f6d321ef2ce16ff22070e410272ee140e7eec51540a823dcd315a size: 1369
-</pre>
-
+```
