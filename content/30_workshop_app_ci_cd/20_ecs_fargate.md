@@ -30,7 +30,7 @@ The Stack is built at Sun Aug  4 05:37:28 UTC 2019 - Please proceed
 
 To test, run the following query and copy the URL you obtain from the output into the address bar of a web browser.  You should see something similar to the image below.
 
-<b>Please click on some links when visiting the URL to populate APM data as we will be observing this data later.</b>
+**Please click on some links when visiting the URL to populate APM data as we will be observing this data later.**
 
 ```bash
 aws elbv2 describe-load-balancers --names="Modernization-Workshop-LB" --query="LoadBalancers[0].DNSName" --output=text
