@@ -10,15 +10,15 @@ Dashboards, along with the chart builder and the rest of the New Relic One platf
 
 You can create your own dashboards from scratch or import existing dashboards using the New Relic API Explorer.  In this exercise, you will be importing a dashboard containing 3 charts.
 
-First, you will need to create an Admin User Key for your New Relic account. Navigate to http://one.newrelic.com and click on <b>Account Settings</b>:
+First, you will need to create an Admin User Key for your New Relic account. Navigate to http://one.newrelic.com and click on **Account Settings**:
 
 ![Account Settings](/images/newrelic-login.png)
 
-Next, click on <b>API keys</b> under the <i>Integrations</i> section on the left hand side of the page:
+Next, click on **API keys** under the *Integrations* section on the left hand side of the page:
 
 ![API Keys](/images/settings-apikeys.png)
 
-Then, in the table underneath <i>Regenerate all</i> near the bottom right-hand side of the page, click on the small circular icon to generate a new key:
+Then, in the table underneath *Regenerate all* near the bottom right-hand side of the page, click on the small circular icon to generate a new key:
 
 ![API Key](/images/settings-generatekey.png)
  
@@ -28,19 +28,19 @@ You will need to select your newly created key from the dropdown box on the top 
 
 ![API Explorer](/images/newrelic-apiexplorer.png)
 
-Back inside your <b>Cloud9</b> editor, copy the entire contents of the <b>dashboards.json</b>:
+Back inside your **Cloud9** editor, copy the entire contents of the ***dashboards.json***:
 
 ![Dashboard File](/images/cloud9-dashboard.png)
 
-Back on the New Relic API Explorer page, paste the contents you just copied into the <b>dashboard</b> textbox, scroll down, and click on <b>Send Request</b>:
+Back on the New Relic API Explorer page, paste the contents you just copied into the **dashboard** textbox, scroll down, and click on **Send Request**:
 
 ![Upload Dashboard](/images/upload-dashboard.png)
 
-Your new dashboard is now ready for viewing!  Navigate to http://one.newrelic.com and click on <b>Dashboards</b>.  You should see something very similar to the following:
+Your new dashboard is now ready for viewing!  Navigate to http://one.newrelic.com and click on **Dashboards**.  You should see something very similar to the following:
 
 ![Dashboard View](/images/newrelic-dashboards.png)
 
-Click on the name of the dashboard: <b>AWS Worskhop</b>.  You should see a fully functioning dashboard displaying information about your application and the AWS resources it is consuming:
+Click on the name of the dashboard: **AWS Worskhop**.  You should see a fully functioning dashboard displaying information about your application and the AWS resources it is consuming:
 
 ![Dashboard](/images/workshop-dashboard.png)
 
