@@ -55,11 +55,19 @@ To obtain your license key, login to http://one.newrelic.com, click on your name
 
 ![Settings](/images/newrelic-login.png)
 
+You should see your license key near the top of the Account Settings page on the right hand side:
+
+![License Key](/images/newrelic-license-key.png)
+
 You are now ready to edit the New Relic configuration file using the built-in Cloud9 editor. First, click on **Open** from the **File** menu:
 
 ![Open File](/images/cloud9-open-file.png)
 
 Then, click on ***newrelic.yml***:
+
+{{% notice info %}}
+You may see what appears to be two copies of this and other files in your Cloud 9 environment as ***app*** is a symlink to the ***java-app*** directory.  They are the same files.
+{{% /notice %}}
 
 ![Open Config File](/images/cloud9-open-newrelic-config.png)
 

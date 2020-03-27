@@ -5,7 +5,7 @@ weight = 1
 +++
 
 {{% notice warning %}}
-You are responsible for the cost of the AWS services used while running this workshop in your AWS account.
+You are responsible for the cost of the AWS services used while running this workshop in your AWS account. Please make sure you are logged into the AWS account you wish to use for this workshop before proceeding. Also, make sure you have any ad blocking software in your browser disabled as it can cause rendering issues.
 {{% /notice %}}
 
 In order for you to succeed in this workshop, you will need to run through a few steps in order to properly setup and configure your environment. These steps will include provisioning some services, installing some tools, and downloading some dependencies as well. We will begin with [AWS Cloud9](https://aws.amazon.com/cloud9/). Technically, you should be able to complete many of the steps in these modules if you have a properly configured terminal. However, in order to avoid the *"works on my machine"* response you've surely experienced at some point in your career, I strongly encourage you to proceed with launching Cloud9.
