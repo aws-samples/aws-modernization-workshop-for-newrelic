@@ -5,6 +5,10 @@ weight = 10
 +++
 
 ### Push to Amazon Elastic Container Repository (ECR)
+{{% notice info %}}
+This step takes approximately 15 minutes
+{{% /notice %}}
+
 Now it's time to compile and package your code.  Copy and paste the below code into Cloud9's terminal window
 
 ```bash

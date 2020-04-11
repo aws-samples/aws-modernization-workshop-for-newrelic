@@ -16,12 +16,12 @@ In order for you to succeed in this workshop, you will need to run through a few
 
 ### Deploy & Launch AWS Cloud9
 
-   [Click here to deploy using CloudFormation template](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=ModernizationWorkshop&templateURL=https://modernization-workshop-west-2.s3-us-west-2.amazonaws.com/devops/cfn/modernization-workshop.yaml)
+   [Click here to deploy using CloudFormation template](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=ModernizationWorkshop&templateURL=https://modernization-workshop-bucket.s3-us-west-2.amazonaws.com/cfn/v1/modernization-workshop.yaml)
 
    - Create stack, click **Next**
    - Specify stack details, click **Next**
    - Configure stack options, click **Next**
-   - Review UnicornDevSecOpsWorkshop, scroll to bottom section under **Capabilities** and check both boxes and click **Create stack** 
+   - Review ModernizationWorkshop, scroll to bottom section under **Capabilities** and check both boxes and click **Create stack** 
 
 >The deployment process takes approximately 2-3 minutes to complete. In the meantime, you can review the [deployment guide](https://aws-quickstart.s3.amazonaws.com/quickstart-cloud9-ide/doc/aws-cloud9-cloud-based-ide.pdf) while you wait.
 

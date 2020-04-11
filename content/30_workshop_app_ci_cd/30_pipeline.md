@@ -3,6 +3,10 @@ title = "Deploy CI/CD Pipeline"
 chapter = false
 weight = 30
 +++
+{{% notice info %}}
+This step is not required and is added here to provide you with an example and CloudFormation required to implement a pipeline that builds code each 
+time a commit is pushed to the master branch.  You can skip this step if you want as the remainder of the workshop does not depend on it.
+{{% /notice %}}
 
 ### What is CI/CD?
 

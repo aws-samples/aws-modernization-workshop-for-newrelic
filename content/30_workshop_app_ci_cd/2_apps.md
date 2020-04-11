@@ -12,7 +12,7 @@ There are two required files for installation:
 
 * ***newrelic.yml***: This contains configuration information for the New Relic agent, including your license key, application name, etc.
 
-First, push the application to the CodeCommit repo.  The following sets a new origin for the application repo to CodeCommit unicorn-store, configures a credential helper needed for CodeCommit, and pushes the source code to the repo.  This step is necessary for an automated pipeline as CodeBuild will build the application directly from this repo.
+First, push the application to the CodeCommit repo.  The following sets a new origin for the application repo to CodeCommit modernization-workshop, configures a credential helper needed for CodeCommit, and pushes the source code to the repo.  This step is necessary for an automated pipeline as CodeBuild will build the application directly from this repo.
 
 ```bash
 cd ~/environment/modernization-workshop/
