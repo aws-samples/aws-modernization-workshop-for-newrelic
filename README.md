@@ -1,5 +1,18 @@
-# Lorum Ipsum
+# Observability with New Relic One
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet luctus venenatis lectus. Lorem ipsum dolor sit amet consectetur adipiscing. Proin sagittis nisl rhoncus mattis. Aliquam eleifend mi in nulla posuere sollicitudin aliquam. Bibendum at varius vel pharetra vel turpis nunc eget lorem. Magna ac placerat vestibulum lectus mauris ultrices eros in cursus. Quam quisque id diam vel quam elementum pulvinar etiam non. Felis donec et odio pellentesque diam volutpat. Sit amet porttitor eget dolor. Suspendisse interdum consectetur libero id. Gravida quis blandit turpis cursus in hac habitasse platea dictumst. Eu consequat ac felis donec et odio pellentesque diam. Magnis dis parturient montes nascetur ridiculus mus. Risus feugiat in ante metus dictum at tempor. Nulla pharetra diam sit amet. Ut diam quam nulla porttitor massa.
+We are in the midst of the "Age of the Customer". Customers are expecting more: More services, more data, faster and more innovative solutions. Organizations and Industries must be agile and keep pace with customer expectations or risk becoming irrelevant. These expectations are pushing organizations into rapid transformational changes. These changes lead to complexity: More changes, more data, more dev teams, and just an overall faster rate of change.
 
-Suscipit tellus mauris a diam maecenas sed enim. Augue interdum velit euismod in pellentesque massa. Phasellus vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Pellentesque habitant morbi tristique senectus et netus. Urna id volutpat lacus laoreet non curabitur gravida arcu. Tincidunt tortor aliquam nulla facilisi cras fermentum odio. Ipsum suspendisse ultrices gravida dictum fusce ut placerat. Felis eget nunc lobortis mattis aliquam faucibus purus in. Sed arcu non odio euismod lacinia at quis risus. Porttitor lacus luctus accumsan tortor posuere ac. Praesent elementum facilisis leo vel. Morbi tristique senectus et netus et. Amet mauris commodo quis imperdiet massa.
+Observability is required to ensure that changes do not affect users interactions and to measure success and/or a degradation affecting customers. Observability is the practice of instrumenting systems with tools to gather actionable data that provides not only the *when* of an error or issue, but more importantly the *why*. The latter is what teams need to respond quickly and resolve emergencies in modern software.
+
+Observability helps modern software teams:
+
+* Deliver high-quality software at scale
+* Build a sustainable culture of innovation
+* Optimize investments in cloud and modern tools
+* See the real-time performance of their digital business 
+
+This workshop provides an introduction to the core concept of Observability, walks you through instrumenting an application with New Relic APM, and details how to visualize your application's telemetry data using New Relic One Dashboards.
+
+You can access the workshop by clicking the link below:
+
+https://newrelic.awsworkshop.io/
