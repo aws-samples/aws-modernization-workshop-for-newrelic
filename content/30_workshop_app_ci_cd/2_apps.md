@@ -93,7 +93,9 @@ Add these two lines at the bottom of the *configuration* section as shown below 
 Lastly, you will need to add the following line **before** the final line in ***docker-entrypoint.sh*** to ensure the New Relic APM agent is launched alongside the application:
 
 ```text
-export JAVA_OPTS="-server -Xms64m -Xmx512m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -javaagent:/opt/jboss/newrelic.jar"
+
+JBOSS_LOG_MANAGER_LIB="$(echo $JBOSS_HOME/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-*.jar)" # resolve logmanager jar
+export JAVA_OPTS=" -Xbootclasspath/p:$JBOSS_LOG_MANAGER_LIB -server -Xms64m -Xmx512m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Djava.awt.headless=true -javaagent:/opt/jboss/newrelic.jar"
 ```
 
 It should look like the image below:
