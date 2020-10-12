@@ -12,8 +12,9 @@ Congratulations.  You have completed this DevOps workshop on Observability using
 - Learned how to deploy CloudFormation stacks
 - Learned about a modern CI/CD pipeline 
 - Learned how to deploy New Relic APM for your applications
-- Explored New Relic apm
-- Learned how to create and view New Relic One dashboards
+- Explored New Relic APM
+- Learned how to add a New Relic One App from the New Relic One Catalog to your New Relic account
+- Learned how to create and view New Relic One Dashboards
 
 ### Final Thoughts
 As modern environments have become increasingly more complex, observability is extremely important for the future success of software teams and their organizations. It gives teams the ability to see a connected view of all of their performance data in one place, in real time, to pinpoint issues faster, understand what caused the issue, and ultimately deliver excellent customer experiences.

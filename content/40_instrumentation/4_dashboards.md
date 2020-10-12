@@ -4,6 +4,12 @@ chapter = false
 weight = 4
 +++
 
+{{% notice info %}}
+New Relic accounts created after July 30th 2020 are on the New Relic One user model. One limitation for these accounts is an inability to create and use an Admin API key. Unfortunately, as of the time of this workshop's publication, this will prevent you from completing this section of the workshop with a newly created New Relic account.
+
+Further information can be obtained [in this thread.](https://discuss.newrelic.com/t/why-arent-admin-api-keys-available-for-users-on-the-new-relic-one-user-model/110887)
+{{% /notice %}}
+
 New Relic One dashboards allow you to combine data from anywhere in the New Relic platform to build flexible, interactive visualizations. You can easily explore your data and correlate connected sources with tailored, user-friendly charts, and quickly learn the state of your system and applications for faster, more efficient troubleshooting.
 
 Dashboards, along with the chart builder and the rest of the New Relic One platform, have been designed for users regardless of their experience level. Anyone can surface data and tailor the visualization with little effort.
