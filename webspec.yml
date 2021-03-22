@@ -18,8 +18,9 @@ phases:
       - git checkout -f "$CODEBUILD_RESOLVED_SOURCE_VERSION"
       - git submodule init
       - git submodule update --recursive
+      - gem install asciidoctor
       - echo Install Hugo
-      - wget https://github.com/gohugoio/hugo/releases/download/v0.71.0/hugo_extended_0.71.0_Linux-64bit.tar.gz -O hugo_extended_0.71.0_Linux-64bit.tar.gz 
+      - wget https://github.com/gohugoio/hugo/releases/download/v0.71.0/hugo_extended_0.71.0_Linux-64bit.tar.gz -O hugo_extended_0.71.0_Linux-64bit.tar.gz
       - HUGO_TAR="$(find . -name "*Linux-64bit.tar.gz")"
       - tar -xzf $HUGO_TAR
       - chmod +x hugo
@@ -27,7 +28,8 @@ phases:
   build:
     commands:
       - echo Build Website
-      - ./hugo -D
+      - ./hugo -D -d public
       - echo Deploy Copy Website to S3 Bucket
       - aws s3 cp public/ s3://${WEB_SITE_BUCKET}/ --recursive
+      - aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRO_ID} --paths /\*
       
