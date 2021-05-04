@@ -1,27 +1,27 @@
----
-title: "New Relic Serverless Workshop"
-chapter: true
-weight: 1
----
++++
+title = "Observability with New Relic One"
+chapter = false
+weight = 1
++++
 
-# New Relic Serverless Workshop
+# Welcome!
 
-![Monitoring Diagram](/images/new-relic-aws.jpg)
+The purpose of these labs is to help you get the most out of your usage of New Relic One. The activities cover typical activities encountered by New Relic users.
 
-### Welcome!
+The labs are written for use exclusively with AWS. Other than that, there are no firm prerequisites, but general Linux and AWS knowledge is assumed.
 
-In this workshop you will learn how to connect your AWS account to New Relic and how to instrument your AWS Lambda functions for better observability.
+If you are taking these labs as part of a joint New Relic and AWS Workshop or Immersion Day, you may be asked to complete an assessment form upon completion.  If you have not been asked by New Relic to complete an assessment, you can safely ignore any comments in this workshop referencing it as it is not a requirement. 
 
-### Learning Objectives
-- Use AWS CloudShell to:
-  * Install the New Relic CLI tool
-  * Connect an AWS account to New Relic
-  * Instrument Lambda functions using the New Relic CLI tool
-- Obtain an understanding of how instrumenting your Lambda functions provides better end to end observability of your AWS environment
+# FAQ
 
+### How long does it take to complete the labs?
+Current testing shows this takes around 6 hours and 30 minutes. 
 
-{{% notice warning %}}
-<p style='text-align: left;'>
-The examples and sample code provided in this workshop are intended to be consumed as instructional content. These will help you understand how various AWS services can be architected to build a solution while demonstrating best practices along the way. These examples are not intended for use in production environments.
-</p>
-{{% /notice %}}
+### What size instances do I need in EC2?
+In CloudFormation you are asked to select an instance size. t2.micro instances work perfectly well.
+
+### Will you be providing AWS access?
+If you are taking these labs as part of a joint New Relic and AWS Workshop or Immersion Day, yes, AWS will be providing access to a sandbox environment.
+
+### Will a free New Relic account work for these labs?
+Yes, [Signing up for a free New Relic account](https://newrelic.com/signup) unlocks all entitlements, and there is no credit card required.
