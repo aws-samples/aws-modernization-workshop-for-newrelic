@@ -17,10 +17,10 @@ First, let's upload a picture ourselves.  You can use a picture of any indivudal
 
 ![UploadCloud9](/images/pixie/upload_cloud9.png)
 
-Now, let's upload image using the TinyHat.me API making sure to replace ***name_of_image.jpg*** with the actual name of the image file you uploaded to your Cloud9 environment:
+Now, let's upload image using the TinyHat.me API making sure to replace ***your_api_gateway*** with the actual address of your gateway service and  ***name_of_image.jpg*** with the actual name of the image file you uploaded to your Cloud9 environment:
 
 ```bash
-curl --location --request POST 'http://a01b26901e64c48d1a98bb18f811d60b-1730600791.us-west-2.elb.amazonaws.com/add' \
+curl --location --request POST 'http://your_api_gateway/add' \
 > --form 'name="Tiny Hats are cool"' \
 > --form 'image=@"/home/ec2-user/environment/name_of_image.jpg"'
 ```
