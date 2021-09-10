@@ -76,19 +76,8 @@ Run `kubectl get pods --watch` to see when everything is finished spinning up.
 export ENDPOINT=[SEE ABOVE INSTRUCTIONS]
 ```
 
-After exporting these environment variables, run `kubectl apply -f kube-bug-demo`
-
-## AWS Rekognition
-After you deploy your cluster, the last step is to ensure your node group has access to AWS Rekognition to retrieve face coordinates.
-
-Go to the [IAM](https://console.aws.amazon.com/iamv2/home) dashboard and access [Roles](https://console.aws.amazon.com/iamv2/home?#/roles)
-
-1. In the search bar, search for your cluster's name.
-![](/images/I43b4Tz.png)
-2. Select the role that contains `NodeInstanceRole` and then click on the blue button that says `Attach policies`.
-3. Search for `rekognition`, select the permission named `AmazonRekognitionFullAccess`, and finally click `Attach policy`.
-![](/images/F37R58I.png)
+After exporting these environment variables, cd into `/prod` and run `for f in *.yaml; do envsubst < $f | kubectl apply -f -; done`
 
 ### You're done! 🎉
-`tinyhats` should now be up and running! To test, run `kubectl get services` and copy the URI corresponding to the `gateway-service`. Paste the URL in the browser and make a GET request; an image in base64 should be in the response.
+`tinyhats` should now be up and running! To test, run `kubectl get services` and copy the URI corresponding to the `frontend-service`. Paste the URL in the browser. You should be greeted with the wonderful face of bob ross. 
 
