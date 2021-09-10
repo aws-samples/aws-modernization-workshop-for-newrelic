@@ -5,10 +5,6 @@ weight: 23
 draft: false
 ---
 
-![TonyHatMe](//images/pixie/tinyhat.png)
-
-# Scenario #2
-
 We have been getting reports that certain customers are getting 404 errors in our app! Let's try to figure out what's going on here.
 
 ### 1. Apply the Kube Files
