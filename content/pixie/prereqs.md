@@ -4,6 +4,7 @@ date: 2021-5-01T09:00:00-00:00
 weight: 5
 draft: false
 ---
+![logo](https://user-images.githubusercontent.com/69332964/132958497-3c7a53a7-0253-47e7-9469-5e502bca0078.png)
 
 To get ready to use Pixie to debug an application on a Kubernetes cluster, we will deploy a demo microservices app named **TinyHat.me**, a simple API that provides virtual hats.
 

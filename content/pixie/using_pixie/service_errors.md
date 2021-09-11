@@ -5,19 +5,27 @@ weight: 22
 draft: false
 ---
 
-![TonyHatMe](/images/pixie/tinyhat.png)
+![image](https://user-images.githubusercontent.com/69332964/132958577-a69d7b4a-0e8c-4e5a-b02a-87e233f3fd6b.png)
 
-Your TinyHat.me API has already taken off and users are actively uploading images.  Unfortunately, there appears to be a bug in the code!
+### What's the problem?
+Your TinyHat.me API has already taken off and users are actively requesting & uploading their own hats.  Unfortunately, there appears to be a bug in the code!
 
-![Bug1](/images/pixie/bug_1.png)
+![bug1](https://user-images.githubusercontent.com/69332964/132958482-736d60fb-26ef-4ad6-abcc-e542dda5d33f.png)
+
+*We are receiving complaints from our users that unmoderated hats are showing up on the website!* In order for a hat to appear on the frontend, admins of TinyHat.Me must approve them first. However, that's not what's happening...
 
 Let's see if we can use Pixie to figure out why image uploads are bypassing our moderation queue.
 
-First, let's upload a picture ourselves.  You can use a picture of any indivudal you like and upload it to your Cloud9 environment via the **File** menu as follows:
+### Replicating the Issue
+First, let's upload a hat ourselves to see the bug in action.  You can use any picture you like and upload it to your Cloud9 environment via the **File** menu as follows:
 
 ![UploadCloud9](/images/pixie/upload_cloud9.png)
 
-Now, let's upload image using the TinyHat.me API making sure to replace ***your_api_gateway*** with the actual address of your gateway service and  ***name_of_image.jpg*** with the actual name of the image file you uploaded to your Cloud9 environment:
+Now, let's upload image using the TinyHat.me API making sure to replace ***your_api_gateway*** with the actual address of your gateway service and  ***name_of_image.jpg*** with the actual name of the image file you uploaded to your Cloud9 environment.
+
+To obtain your API gateway address, execute `kubectl get services` in your terminal and copy paste the URL corresponding to `gateway-service`.
+![gateway](https://user-images.githubusercontent.com/69332964/132958710-42ea09d0-a46a-44a0-b13a-0ff85d2ca175.png)
+
 
 ```bash
 curl --location --request POST 'http://your_api_gateway/add' \
@@ -25,10 +33,22 @@ curl --location --request POST 'http://your_api_gateway/add' \
 > --form 'image=@"/home/ec2-user/environment/name_of_image.jpg"'
 ```
 
-If successfull, you should see a response similar to this:
+If successful, you should see a response similar to this:
 
-![UploadSuccess](/images/pixie/upload_success.png)
+```json
+{
+    "result": {
+        "key": "tmvxch9exufm1jh3",
+        "fileName": "tmvxch9exufm1jh3.jpeg",
+        "url": "https://tinyhats.s3.amazonaws.com/tmvxch9exufm1jh3.jpeg",
+        "description": "Tiny Hats are cool",
+        "approve": "false"
+    }
+}
+```
 
+Now, go back to the frontend and swipe through the gallery of hats. Yikes! Your unapproved picture should be there - that's not supposed to happen.
+### Debugging with Pixie
 Let's hop back over to Pixie and see if we can figure out what's going on.  To get a high level view of what the application is doing, run the `px/cluster` script:
 
 ![ClusterView](/images/pixie/tinyhats_cluster.png)
