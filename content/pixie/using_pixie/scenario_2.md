@@ -4,9 +4,15 @@ date: 2021-5-01T09:00:00-00:00
 weight: 23
 draft: false
 ---
-
+### And... We have another bug!
 We have been getting reports that certain customers are getting 404 errors in our app! Let's try to figure out what's going on here.
+![08a4abbb-6f14-477c-8830-24c68ff8c688](https://user-images.githubusercontent.com/69332964/132959750-8abff56c-b7ab-4740-9591-e049aeb0a568.png)
 
+
+### Replicating the Issue
+![ezgif-4-a3dc76ed42f6](https://user-images.githubusercontent.com/69332964/132959460-b0126cd9-63f8-4d0f-862b-a399b6697151.gif)
+
+Hmm the request doesn't seem to work for the `PIXIE` hat but does work for others, like `pepe`. Let's dig into this further
 ### 1. Apply the Kube Files
 
 ```jsx
@@ -16,14 +22,9 @@ for f in *.yaml; do envsubst < $f | kubectl apply -f -; done
 
 ### 2. Try sending the CURL request to the endpoint
 
-[Sep-09-2021 22-01-22.mp4](/images/pixie/Sep-09-2021_22-01-22.mp4)
-
 ```jsx
 curl --location --request GET '{GATEWAY_URL ENDPOINT}/PIXIE'
 ```
-
-Hmm the request doesn't seem to work for the `PIXIE` hat but does work for others, like `pepe`. Let's dig into this further
-
 ### 3. Open on Pixie
 
 Let's open Pixie to figure out exactly what's going on. 
