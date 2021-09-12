@@ -87,14 +87,14 @@ Hmm... We don't get much information other than the fact that Pixie cannot retur
 ![fetch bad](https://user-images.githubusercontent.com/69332964/133000635-22157085-825d-4d97-9a8b-ddb6d2ae7030.png)
 
 ```bash
-curl --location --request POST 'a42097216f471479c90eaa6038522bb5-1898651003.us-east-2.elb.amazonaws.com/add' \
+curl --location --request POST '{GATEWAY_URL}/add' \
 --form 'name="wHy tHiS haT"' \
---form 'image=@"/Users/ganningxu/Downloads/1200x1200png-s21_do_good_five_panel_hat_papaya_lagoon_front_1024x1024.png.crdownload"'
+--form 'image=@"/Users/example/Downloads/hat.jpeg"'
 ```
 ![upload service](https://user-images.githubusercontent.com/62436772/133001616-bb3fc359-c8b1-48dd-8767-edf331a3520a.png)
 
 ![upload good](https://user-images.githubusercontent.com/62436772/133001604-30fafedf-eeed-4471-8286-3b7663da87cc.png)
 
-![sql thing](/images/pixie/Screen_Shot_2021-09-10_at_12.20.00_AM.png)
+![sql data](https://user-images.githubusercontent.com/69332964/133001889-d22723d8-6b56-421d-b535-ac083fcbdf7c.png)
 
 We found the culprit - We are making a case-sensitive MySQL call from the `fetch` function with a lower case pixie. The ticket has been filed and the fix will be deployed shortly! Onwards!
