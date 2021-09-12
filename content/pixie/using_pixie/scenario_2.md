@@ -70,7 +70,7 @@ Let's head to `px/http_data_filtered` to figure out the errors that are returnin
 
 If you filter for the status **400** codes, the requests that error out, you can see all the failed requests for the "PIXIE" hat the users wanted to try out. The body of the request reports that the hat supposedly "doesn't exist" even though it does in the SQL database.
 
-![Screen Shot 2021-09-09 at 10.42.28 PM.png](/images/pixie/Screen_Shot_2021-09-09_at_10.42.28_PM.png)
+![image](https://user-images.githubusercontent.com/69332964/133000775-f1f1b99e-76cb-4147-949a-be14925165cb.png)
 
 Hmm... We don't get much information other than the fact that Pixie cannot return the `PIXIE` hat, but can return other hats. Let's see what the gateway service is getting. 
 
