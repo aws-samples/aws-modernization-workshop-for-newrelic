@@ -60,7 +60,7 @@ Lets download and deploy the Tiny Hats code:
 
 ```
 wget https://tinyhatkubefiles.s3.us-west-2.amazonaws.com/MySQL_Error.zip
-# fix with https://github.com/bitprj/intro-to-k8s/tree/1-mysql-bug/kube
+# fix with https://github.com/bitprj/intro-to-k8s/tree/main/scenarios/1-mysql
 unzip MySQL_Error.zip
 kubectl apply -f MySQL_Error
 ```

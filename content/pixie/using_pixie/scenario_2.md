@@ -6,8 +6,7 @@ draft: false
 ---
 ### And... We have another bug!
 We have been getting reports that certain customers are getting 404 errors in our app! Let's try to figure out what's going on here.
-![08a4abbb-6f14-477c-8830-24c68ff8c688](https://user-images.githubusercontent.com/69332964/132959750-8abff56c-b7ab-4740-9591-e049aeb0a568.png)
-
+![image](https://user-images.githubusercontent.com/69332964/132966302-c308d777-6c70-4e02-92b2-471248c72343.png)
 
 ### Replicating the Issue
 ![ezgif-4-a3dc76ed42f6](https://user-images.githubusercontent.com/69332964/132959460-b0126cd9-63f8-4d0f-862b-a399b6697151.gif)
