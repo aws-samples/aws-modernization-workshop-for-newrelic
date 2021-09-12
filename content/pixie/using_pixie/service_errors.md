@@ -10,7 +10,7 @@ draft: false
 ### What's the problem?
 Your TinyHat.me API has already taken off and users are actively requesting & uploading their own hats.  Unfortunately, there appears to be a bug in the code!
 
-![bug1](https://user-images.githubusercontent.com/69332964/132958482-736d60fb-26ef-4ad6-abcc-e542dda5d33f.png)
+![image](https://user-images.githubusercontent.com/69332964/132967698-bba673cf-b433-499a-a045-20fe767a2e80.png)
 
 *We are receiving complaints from our users that unmoderated hats are showing up on the website!* In order for a hat to appear on the frontend, admins of TinyHat.Me must approve them first. However, that's not what's happening...
 
@@ -114,8 +114,12 @@ Having clicked on the SQL query, we can now see the complete JSON response of th
 ![MysqlQuery](/images/pixie/sql_query.png)
 ![image](https://user-images.githubusercontent.com/69332964/132967572-8cd2c22c-a2c3-4c53-be76-b2c418a15557.png)
 
-We have found our culprit!  The SQL query here is selecting **ALL images from the database** without specifying a **WHERE clause** to determine whether or not the image was actually ever approved. You could have also noticed that the number of resulting rows from the query was way too big! The correct query should have been:
+### We have found our culprit!
+The SQL query here is selecting **ALL images from the database** without specifying a **WHERE clause** to determine whether or not the image was actually ever approved. You could have also noticed that the number of resulting rows from the query was way too big! The correct query should have been:
 
 ```sql
 SELECT * FROM main.images WHERE approve="true"
 ```
+
+![image](https://user-images.githubusercontent.com/69332964/132967809-dc9796a2-d033-4321-8303-02e854eec0f1.png)
+
