@@ -16,6 +16,7 @@ kubectl rollout restart deployment mysql
 ```
 It may take a second for everything to be ready again, so use `kubectl get pods --watch` to monitor the status. Once everything is "ready," get your `frontend-service` url and let's begin.
 ### We shipped a new feature!
+![image](/images/pixie/3-tweet.png)
 The engineering team at Tinyhat.me has shipped a new feature to allow admins to preview their hats before it gets approved. However, initial admin beta testers have revealed some frustrations with the service, **as page load speeds are reaching unbearable lengths.**
 
 Engineering at TinyHat.Me is concerned with the `frontend-service`. Attempt to use Pixie to determine what is causing the long page load times.
@@ -47,7 +48,7 @@ There is more information, however, below this section. Scroll down to **Sample 
 
 Looking at the **REQ_PATH**, we can now identify that the slow request is to the `/api/admin` endpoint. We can then conclude that the `admin-service` is the source of the long loading times.
 
-> **What's hapenning?** When `frontend-service` makes a request for admin actions on TinyHat.Me, it is taking a long time for `admin-service` to respond.
+> **What's happening?** When `frontend-service` makes a request for admin actions on TinyHat.Me, it is taking a long time for `admin-service` to respond.
 ### Using `px/flamegraph` to find the potential fix
 
 #### Flamegraphs in Pixie
