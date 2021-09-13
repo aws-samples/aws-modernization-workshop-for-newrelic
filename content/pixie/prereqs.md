@@ -4,7 +4,6 @@ date: 2021-5-01T09:00:00-00:00
 weight: 5
 draft: false
 ---
-![logo](https://user-images.githubusercontent.com/69332964/132958497-3c7a53a7-0253-47e7-9469-5e502bca0078.png)
 
 To get ready to use Pixie to debug an application on a Kubernetes cluster, we will deploy a demo microservices app named **TinyHat.me**, a simple API that provides virtual hats.
 
@@ -56,17 +55,16 @@ export S3_SECRET=[AWS SECRET KEY]
 
 ### Working with EKS
 
-Lets download and deploy the Tiny Hats code:
+Lets download and deploy the [Tiny Hats zip file](https://tinyhatkubefiles.s3.us-west-2.amazonaws.com/tinyhats.zip)
+To apply the exported environment variables,
 
+```bash cd 0-setup
+for f in *.yaml; do envsubst < $f | kubectl apply -f -; done
 ```
-wget https://tinyhatkubefiles.s3.us-west-2.amazonaws.com/MySQL_Error.zip
-# fix with https://github.com/bitprj/intro-to-k8s/tree/main/scenarios/1-mysql
-unzip MySQL_Error.zip
-kubectl apply -f MySQL_Error
-```
-To apply the exported environment variables, cd into `/MySQL_Error` and run `for f in *.yaml; do envsubst < $f | kubectl apply -f -; done`
 
-Run `kubectl get pods --watch` to see when everything is finished spinning up.
+Then, run
+```bash kubectl get pods --watch```  
+to see when everything is finished spinning up.
 
 ### You're done! 🎉
 `tinyhats` should now be up and running! All your pods are ready to roll once you see this output from the command `kubectl get pods`:
