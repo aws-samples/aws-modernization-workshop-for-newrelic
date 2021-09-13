@@ -58,12 +58,15 @@ export S3_SECRET=[AWS SECRET KEY]
 Lets download and deploy the [Tiny Hats zip file](https://tinyhatkubefiles.s3.us-west-2.amazonaws.com/tinyhats.zip)
 To apply the exported environment variables,
 
-```bash cd 0-setup
+```bash 
+cd 0-setup
 for f in *.yaml; do envsubst < $f | kubectl apply -f -; done
 ```
 
 Then, run
-```bash kubectl get pods --watch```  
+```bash 
+kubectl get pods --watch
+```  
 to see when everything is finished spinning up.
 
 ### You're done! 🎉
