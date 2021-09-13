@@ -27,13 +27,13 @@ Hmm the request doesn't seem to work for the `PIXIE` hat but does work for other
 ![image](https://user-images.githubusercontent.com/69332964/133002083-d6e11948-5230-44e7-9504-3d3aebb19b9d.png)
 > Here we see the console on a web browser, showing that the hat is **404**: Could not be found.
 
-Try using this command to make a request for the PIXIE hat. **Remember to change the {GATEWAY_URL_ENDPOINT} into your `gateway-service` url, which can be retrieved using `kubectl get services`.**
+Let's manually test this by making a request for the PIXIE hat. **Remember to change the {GATEWAY_URL_ENDPOINT} into your `gateway-service` url, which can be retrieved using `kubectl get services`.**
 ```jsx
 curl --location --request GET '{GATEWAY_URL_ENDPOINT}/PIXIE'
 ```
 Just like the user in the Tweet said, the GET request for the "PIXIE" hat also returns an error and a message saying that it does not exist. Strange!
 
-**The engineering team has identified a couple possible root causes of this problem:**
+**The engineering team has identified four possible root causes of this problem:**
 
 [❓](#1-whats-wrong-with-the-frontend) The `frontend-service` is not displaying the hat image correctly due to the hat's special casing. 
 
