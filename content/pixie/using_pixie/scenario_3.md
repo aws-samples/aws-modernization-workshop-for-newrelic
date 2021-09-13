@@ -41,12 +41,16 @@ This time, we'll be using the `px/service` script, so select it from the dropdow
 ![image](/images/pixie/3-service-1.png)
 Although the above page, `px/service` gives us a visualization of the HTTP Latency we observed with `px/cluster`, it still doesn't provide us with enough information to determine what is actually *causing* the high latency.
 
-There is more information, however, below this section. Scroll down to **Sample Of Slow Requests**. This will provide us with exactly what we need: "slow requests."
-
+There is more information, however, below this section. Scroll down to **Sample Of Slow Requests**. This will provide us with exactly what we need: "slow requests." Using this feature from Pixie, we'll be able to identify *where* the long page load is triggered from.
 
 ![image](/images/pixie/3-service-2.png)
 
+Looking at the **REQ_PATH**, we can now identify that the slow request is to the `/api/admin` endpoint. We can then conclude that the `admin-service` is the source of the long loading times.
+
+> **What's hapenning?** When `frontend-service` makes a request for admin actions on TinyHat.Me, it is taking a long time for `admin-service` to respond.
 ### Using `px/flamegraph` to find the potential fix
+
+#### Flamegraphs in Pixie
 We are going to use Pixie's Always-On Profiling feature to investigate this slowdown, using a flamegraph to identify a performance issue within the application code.
 
 Every ~10ms, the Pixie profiler samples the current stack trace on each CPU. The stack trace includes the function that was executing at the time of the sample, along with the ancestor functions that were called to get to this point in the code.
@@ -59,10 +63,23 @@ The background color of each box in the flamegraph adds an extra dimension of da
 - Light blue bars represent user space application code.
 - Green bars represent kernel code.
 
+#### Running `px/perf_flamegraph`
+Using the dropdown, search for and select the `px/perf_flamegraph` script. However, this flamegraph has too much information, **we want to narrow this down to the namespace that we care about: `/default`.** This contains all of the services specifically pertaining to the deployment of TinyHat.Me, and excludes other services that monitor the Kubernetes cluster's health.
+
+Click on the `namespace` parameter and type in `default` to filter the flamegraph by the namespace we want to focus on.
 ![image](/images/pixie/3-flamegraph-1.png)
 
-However, this flamegraph has too much information, we want to narrow this down to the namespace that we care about - `/default`. 
+Now that the interface is cleaner, notice the two containers that are running in the flamegraph, `manipulation-service` and `admin-service`.
+
+Focus on `admin-service`, the service we are analyzing in this situation. Notice that a specific function `main.createSampleImages` is being called even more than `main.setupSQLQuery` is. 
 
 ![image](/images/pixie/3-flamegraph-2.png)
 
-Much better. it looks like based on the calls for `/manipulate` and `admin`, we individually generate the sample image every time the `/admin` route is being called. Instead of making so many HTTP requests everytime the admin dashboard is being accessed, we should save the mockup when the user uploads the image to improve page load speeds!
+#### Using Flamegraphs to Draw Conclusions
+Here's what we can identify now:
+1. The function `main.createSampleImages` is being called repeatedly.
+2. The function `main.createSampleImages` is calling the `manipulation-service` each time as well. *This can be inferred by the large width of the columns for this service on the flamegraph.*
+
+![image](/images/pixie/3-flamegraph-3.png)
+#### Identifying the Problem and Creating a Solution
+Based on the calls for `/manipulate` and `/admin`, we individually generate the sample image every time the `/admin` route is being called. Instead of making so many HTTP requests every time the admin dashboard is being accessed, we should save the mockup when the user uploads the image to improve page load speeds.
