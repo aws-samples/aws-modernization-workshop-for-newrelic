@@ -28,9 +28,26 @@ It looks like indeed the frontend service is getting a lot of latency. Let's fig
 ### Using `px/service` to do root-cause analysis
 
 ![image](/images/pixie/3-service-1.png)
+
 ![image](/images/pixie/3-service-2.png)
 
+### Using `px/flamegraph` to find the potential fix
+We are going to use Pixie's Always-On Profiling feature to investigate this slowdown, using a flamegraph to identify a performance issue within the application code.
 
-### Using the flamegraph to find the potential fix
+Every ~10ms, the Pixie profiler samples the current stack trace on each CPU. The stack trace includes the function that was executing at the time of the sample, along with the ancestor functions that were called to get to this point in the code.
+
+The collected samples are aggregated across a larger 30 second window that includes thousands of stack traces. These stack traces are then grouped by their common ancestors. At any level, the wider the stack, the more often that function appeared in the stack traces. Wider stack traces are typically of more interest as it indicates a significant amount of the application time being spent in that function.
+
+The background color of each box in the flamegraph adds an extra dimension of data:
+
+- Dark blue bars indicate K8s metadata info (node, namespace, pod, container).
+- Light blue bars represent user space application code.
+- Green bars represent kernel code.
+
 ![image](/images/pixie/3-flamegraph-1.png)
+
+However, this flamegraph has too much information, we want to narrow this down to the namespace that we care about - `/default`. 
+
 ![image](/images/pixie/3-flamegraph-2.png)
+
+Much better. it looks like based on the calls for `/manipulate` and `admin`, we individually generate the sample image every time the `/admin` route is being called. Instead of making so many HTTP requests everytime the admin dashboard is being accessed, we should save the mockup when the user uploads the image to improve page load speeds!
