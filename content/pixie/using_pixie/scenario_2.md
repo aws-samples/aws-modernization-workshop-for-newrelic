@@ -86,7 +86,7 @@ Looking at the `px/service_stats` script, we can also see a similar trend, but w
 Using `px/http_data_filtered` again, let's see what a successful request should look like. Filter for **status_code** 200 to see that `gateway-service` should return back base64 for the `frontend-service` to display to users.
 ![gateway good](https://user-images.githubusercontent.com/62436772/133001071-ff151790-5505-41ed-a78f-250a3a3bc8c9.png)
 
-Filtering for **status_code** 400 gives us a very different scenario. We see that **REQ_PATH** is all `/PIXIE`, as the user is repeatedly trying to access the PIXIE hat. In the body of the response, we can see that `gateway-service` responds with a message stating that the "hat style does not exist" with an error code of `400`. However, that's not particularly helpful either, since **we already know** that the PIXIE hat *appears* to be missing even though it is, in fact, in the MySQL Database.
+Filtering for **status_code** 400 gives us a very different scenario. We see that **REQ_PATH** is all `/PIXIE`, as the user is repeatedly trying to access the PIXIE hat. In the body of the response, we can see that `gateway-service` responds with a message stating that the "hat style does not exist" with an error code of `400`. However, that's not particularly helpful either, since **we already know** that the PIXIE hat *appears* to be missing even though it is, in fact, in the MySQL Database because we are able to select it on the frontend. 
 ![gateway bad](https://user-images.githubusercontent.com/62436772/133001102-47febea9-ceb4-42a1-8592-756d1edec882.png)
 Two services down, and two more to go!
 ### 3. Is it an issue with data storage?
