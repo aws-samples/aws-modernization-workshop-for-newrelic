@@ -1,5 +1,5 @@
 ---
-title: "Diagnosing Issues - Scenario #2"
+title: "Diagnosing Issues - Scenario #3"
 date: 2021-5-01T09:00:00-00:00
 weight: 23
 draft: false
@@ -24,3 +24,13 @@ Try navigating to `{FRONTEND URL}/admin?password=ilovecats`, which is the approv
 ![image](/images/pixie/3-cluster.png)
 
 It looks like indeed the frontend service is getting a lot of latency. Let's figure out what's going on. 
+
+### Using `px/service` to do root-cause analysis
+
+![image](/images/pixie/3-service-1.png)
+![image](/images/pixie/3-service-2.png)
+
+
+### Using the flamegraph to find the potential fix
+![image](/images/pixie/3-flamegraph-1.png)
+![image](/images/pixie/3-flamegraph-2.png)
