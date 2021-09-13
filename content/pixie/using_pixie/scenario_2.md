@@ -92,11 +92,6 @@ Two services down, and two more to go!
 ### 3. Is it an issue with data storage?
 The other potential source of error could be coming from the `upload-service`, which is in charge of uploading the image. Once again using the helpful `px/service_stats` script, we can gain a general overview of how our `upload-service` is doing.
 
-There is one clear difference between `upload-service` and the other two - all the codes are **200**! This service is happy and healthy and is not erroring out. But, we still need to collect some evidence to be sure that **it is not storing the hat style incorrectly.**
-
-![upload service](https://user-images.githubusercontent.com/62436772/133001616-bb3fc359-c8b1-48dd-8767-edf331a3520a.png)
-
-> One thing you might have noticed is that the PIXIE hat style is **all caps** while the other working ones are **lowercase**. Let's prove that the `upload-service` is not causing this discrepancy. 
 
 Run the below command in you Cloud9 terminal, making sure to replace `{GATEWAY_URL}` and `"/Users/example/Downloads/hat.jpeg"` while a file path from your own machine. We used the name `wHy tHiS haT` because it has strange capitlization.
 ```bash
@@ -106,6 +101,12 @@ curl --location --request POST '{GATEWAY_URL}/add' \
 ```
 Now, switch back to your New Relic One Pixie dashboard and filter take a look at `upload-service` using `px/http_data_filtered`.
 > **Optional:** Try filtering for the **REQ_PATH** of `/upload` to receive less results!
+
+There is one clear difference between `upload-service` and the other two - all the codes are **200**! This service is happy and healthy and is not erroring out. But, we still need to collect some evidence to be sure that **it is not storing the hat style incorrectly.**
+
+![upload service](https://user-images.githubusercontent.com/62436772/133001616-bb3fc359-c8b1-48dd-8767-edf331a3520a.png)
+
+> One thing you might have noticed is that the PIXIE hat style is **all caps** while the other working ones are **lowercase**. Let's prove that the `upload-service` is not causing this discrepancy. 
 
 Find the request that corresponds to the hat we just sent, "wHy tHiS haT". You should notice that the `description` field is correct with accurate capilization.
 
