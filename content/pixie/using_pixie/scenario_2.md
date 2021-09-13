@@ -112,7 +112,7 @@ Find the request that corresponds to the hat we just sent, "wHy tHiS haT". You s
 
 ![upload good](https://user-images.githubusercontent.com/62436772/133001604-30fafedf-eeed-4471-8286-3b7663da87cc.png)
 
-Once again by process of elimination, we are done to the main suspect: `fetch-service`. `upload-service` has been proved innocent!
+Once again by process of elimination, we are down to the main suspect: `fetch-service`. `upload-service` has been proved innocent!
 
 ### 4. `fetch-service`... Again?
 It looks like we've looped right back to the old culprit, `fetch-service`. Just like you've done with the previous services, take a broad look at `fetch-service` through `px/service_stats`. Error rate seems to go up at around the same time as `gateway-service` and `frontend-service`, and we once again encounter the `400` error code.
