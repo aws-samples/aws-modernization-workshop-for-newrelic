@@ -5,12 +5,12 @@ weight: 23
 draft: false
 ---
 ### Set up Scenario #2
-
+Run the below command in your Cloud9 Terminal.
 ```bash
 cd 2-lowerCase
 for f in *.yaml; do envsubst < $f | kubectl apply -f -; done
 ```
-Now, restart the MySQL database to reset your hats! It may take a second for everything to be ready again, so use `kubectl get pods --watch` to monitor the status.
+Now, restart the MySQL database to reset your hats! It may take a second for everything to be ready again, so use `kubectl get pods --watch` to monitor the status. Once everything is "ready," get your `frontend-service` url and let's begin...
 
 ```bash
 kubectl rollout restart deployment mysql
@@ -19,7 +19,7 @@ kubectl rollout restart deployment mysql
 We have been getting reports that certain customers are getting 404 errors in our app! Let's try to figure out what's going on here.
 ![image](https://user-images.githubusercontent.com/69332964/132967850-c1f68202-6f53-44a7-9f19-13283b2d9c24.png)
 ### Replicating the Issue
-First, try requesting for the `PIXIE` hat on your frontend by  - it shouldn't work. Remember to use `kubectl get services` in order to get the URL. Then, 
+First, try requesting for the `PIXIE` hat on your frontend by  - it shouldn't work. Remember to use `kubectl get services` in order to get the URL. Then, try out any other hat; Bob Ross should pop up.
 ![ezgif-4-a3dc76ed42f6](https://user-images.githubusercontent.com/69332964/132959460-b0126cd9-63f8-4d0f-862b-a399b6697151.gif)
 
 Hmm the request doesn't seem to work for the `PIXIE` hat but does work for others, like `pepe`. Let's dig into this further...
