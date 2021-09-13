@@ -10,24 +10,39 @@ Run the below command in your Cloud9 Terminal.
 cd 3-sampleimage
 for f in *.yaml; do envsubst < $f | kubectl apply -f -; done
 ```
-Now, restart the MySQL database to reset your hats! It may take a second for everything to be ready again, so use `kubectl get pods --watch` to monitor the status. Once everything is "ready," get your `frontend-service` url and let's begin...
-
+Now, restart the MySQL database to reset your hats! 
 ```bash
 kubectl rollout restart deployment mysql
 ```
-
+It may take a second for everything to be ready again, so use `kubectl get pods --watch` to monitor the status. Once everything is "ready," get your `frontend-service` url and let's begin.
 ### We shipped a new feature!
-The engineering team at Tinyhat.me has shipped a new feature to allow admins to preview their hats before it gets approved. However, initial beta testers have revealed some frustrations with the service, as page load speeds are reaching unbearable lengths. 
+The engineering team at Tinyhat.me has shipped a new feature to allow admins to preview their hats before it gets approved. However, initial admin beta testers have revealed some frustrations with the service, **as page load speeds are reaching unbearable lengths.**
 
-Try navigating to `{FRONTEND URL}/admin?password=ilovecats`, which is the approval interface for admins. Then, open Pixie to see what's going on!
+Engineering at TinyHat.Me is concerned with the `frontend-service`. Attempt to use Pixie to determine what is causing the long page load times.
+
+### Replicating the Issue
+
+Try navigating to `{FRONTEND URL}/admin?password=ilovecats`, which is the approval interface for admins. 
+
+> **Notice**: The time it takes to load the preview of the hats takes longer than the previous version. A blank black screen appears before finally displaying the hats.
+
+Then, open Pixie to see what's going on! Just like before, run the `px/cluster` script to gain an overview of what is happening in the cluster.
+
+![image](https://user-images.githubusercontent.com/69332964/132966785-a29c4d74-153b-4f01-8c10-cb618e8e99b7.png)
+
+Scroll down to the **Services** section and notice the latency for each different service.
 
 ![image](/images/pixie/3-cluster.png)
 
-It looks like indeed the frontend service is getting a lot of latency. Let's figure out what's going on. 
+The engineers were on the right path: it looks like indeed the frontend service is getting a lot of latency. Let's figure out what's going on. 
 
 ### Using `px/service` to do root-cause analysis
-
+This time, we'll be using the `px/service` script, so select it from the dropdown. As we've identified in the previous step, the `frontend-service` is definitely of concern. Give the script the `default/frontend-service` parameter by typing it in the `service` dropdown.
 ![image](/images/pixie/3-service-1.png)
+Although the above page, `px/service` gives us a visualization of the HTTP Latency we observed with `px/cluster`, it still doesn't provide us with enough information to determine what is actually *causing* the high latency.
+
+There is more information, however, below this section. Scroll down to **Sample Of Slow Requests**. This will provide us with exactly what we need: "slow requests."
+
 
 ![image](/images/pixie/3-service-2.png)
 
