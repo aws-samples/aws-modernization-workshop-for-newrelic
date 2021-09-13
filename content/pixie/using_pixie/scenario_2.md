@@ -41,7 +41,7 @@ Just like the user in the Tweet said, the GET request for the "PIXIE" hat also r
 
 [❓](#3-is-it-an-issue-with-data-storage) The `upload-service` corrupted the hat's data when it was uploaded to the MySQl database and/or the S3 Bucket. 
 
-[❓](#4-fetch-service-again) The `fetch-service` executes unnecessary instructions that results in a case-sensitive situation when retrieving hats.
+[❓](#4-fetch-service-again) The `fetch-service` executes unnecessary instructions that results in a case-sensitive situation when retrieving hats from the MySQL database.
 
 > Now, it's your job to identify the culprit using the powers of Pixie.
 ### Using `px/cluster` to survey the situation
