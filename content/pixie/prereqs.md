@@ -98,7 +98,7 @@ Finally, run `kubectl get services` in your terminal
 
 ![gateway](/images/pixie/0-kubectl.png)
 
-Export the URLs associated with the `Gateway-Service` by running. Make sure to replace `INSERTGATEWAYSERVICEURL` with your Gateway Service `EXTERNAL-IP` from above.
+Export the URLs associated with the `Gateway-Service` by running. Make sure to replace `<YOUR_DATA_GOES_HERE>` with your Gateway Service `EXTERNAL-IP` from above.
 
 ```bash
 export GATEWAYSERVICE = <YOUR_DATA_GOES_HERE>
