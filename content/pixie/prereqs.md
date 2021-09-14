@@ -97,11 +97,10 @@ Finally, run `kubectl get services` in your terminal
 
 ![gateway](/images/pixie/0-kubectl.png)
 
-Export the URLs associated with the `Gateway-Service` by running. Make sure to replace `INSERTGATEWAYSERVICEURL` with your Gateway Service URL from above.
+Export the URLs associated with the `Gateway-Service` by running. Make sure to replace `INSERTGATEWAYSERVICEURL` with your Gateway Service `EXTERNAL-IP` from above.
 
 ```bash
-export GATEWAYSERVICE = INSERTGATEWAYSERVICEURL
+export GATEWAYSERVICE = <YOUR_DATA_GOES_HERE>
 ```
-
 
 Try pasting the URL for `Frontend-Service` in the browser. You should be greeted with the wonderful face of Bob Ross. Keep this URL handy as you will need it later in the workshop. 
