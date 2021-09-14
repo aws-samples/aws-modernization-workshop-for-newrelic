@@ -13,17 +13,17 @@ Click [here](https://console.aws.amazon.com/s3/home) to access the S3 console.
 #### Creating the bucket
 Click `Create bucket`.
 
-1. Name your bucket in the `Bucket name` field. (Example: `tinyhats`)
+1. Name your bucket in the `Bucket name` field. (Example: `tinyhat`)
 2. Edit the Public Access settings to match the configuration below:
 
 ![](/images/u6ZrfvH.png)
 3. Leave all other settings as deafult and click `Create bucket`.
 
 #### Allowing public access
-On the S3 console, click on the newly created S3 bucket by identifying it with the name you assigned it to. (Example: `tinyhats`)
+On the S3 console, click on the newly created S3 bucket by identifying it with the name you assigned it to. (Example: `tinyhat`)
 
 1. Click on `Permissions` and scroll down to `Bucket policy`.
-2. Click `Edit` and paste the below policy in the editor, **remembering to replace `tinyhats` with your actual bucket name, if it differs**
+2. Click `Edit` and paste the below policy in the editor, **remembering to replace `tinyhat` with your actual bucket name, if it differs**
 ```
 {
     "Version": "2012-10-17",
@@ -33,7 +33,7 @@ On the S3 console, click on the newly created S3 bucket by identifying it with t
             "Effect": "Allow",
             "Principal": "*",
             "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::tinyhats/*"
+            "Resource": "arn:aws:s3:::tinyhat/*"
         }
     ]
 }
@@ -59,7 +59,7 @@ Lets download and deploy the [Tiny Hats zip file](https://tinyhatkubefiles.s3.us
 To apply the exported environment variables,
 
 ```bash 
-cd 0-setup
+cd ~/environment/0-setup
 for f in *.yaml; do envsubst < $f | kubectl apply -f -; done
 ```
 
@@ -87,6 +87,3 @@ upload-service-7f57868797-4cmr4         1/1     Running   0          66s
 ``` 
 
 To test, run `kubectl get services` and copy the URI corresponding to the `frontend-service`. Paste the URL in the browser. You should be greeted with the wonderful face of Bob Ross. 
-
-![bob ross](https://user-images.githubusercontent.com/69332964/132958153-d5a47029-5e0b-4c13-adec-87b12b760379.png)
-

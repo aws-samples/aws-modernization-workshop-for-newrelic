@@ -5,7 +5,12 @@ weight: 22
 draft: false
 ---
 
-![image](https://user-images.githubusercontent.com/69332964/132958577-a69d7b4a-0e8c-4e5a-b02a-87e233f3fd6b.png)
+### Set up Scenario #1
+Run the below command in your Cloud9 Terminal.
+```bash
+cd ~/environment/1-mysql
+for f in *.yaml; do envsubst < $f | kubectl apply -f -; done
+```
 
 ### What's the problem?
 Your TinyHat.me API has already taken off and users are actively requesting & uploading their own hats.  Unfortunately, there appears to be a bug in the code!
