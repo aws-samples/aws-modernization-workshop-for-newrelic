@@ -102,7 +102,7 @@ Two services down, and two more to go!
 The other potential source of error could be coming from the `upload-service`, which is in charge of uploading the image. Once again using the helpful `px/service_stats` script, we can gain a general overview of how our `upload-service` is doing.
 
 
-Run the below command in you Cloud9 terminal, making sure to replace `{GATEWAY_URL}` and `"/Users/example/Downloads/hat.jpeg"` while a file path from your own machine. We used the name `wHy tHiS haT` because it has strange capitalization.
+Run the below command in you Cloud9 terminal. We used the name `wHy tHiS haT` because it has strange capitalization.
 
 ```bash
 curl --location --request POST ${GATEWAYSERVICE}/add --form 'name="wHy tHiS haT"' --form 'image=@"/home/ec2-user/environment/tinyhats/badhat.png"'
