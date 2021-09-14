@@ -7,7 +7,7 @@ weight: 30
 Confirm your nodes:
 
 ```bash
-kubectl get nodes # if we see our 3 nodes, we know we have authenticated correctly
+kubectl get nodes # if we see our 2 nodes, we know we have authenticated correctly
 ```
 
 #### Export the Worker Role Name for use throughout the workshop:
