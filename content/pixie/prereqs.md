@@ -80,7 +80,7 @@ to see when everything is finished spinning up.
 `tinyhats` should now be up and running! All your pods are ready to roll once you see this output from the command `kubectl get pods`:
 
 ```
-tinyhat:~/environment $ kubectl get pods --watch
+tinyhats:~/environment/tinyhats $ kubectl get pods --watch
 NAME                                    READY   STATUS    RESTARTS   AGE
 add-service-6b4466569b-w6blg            1/1     Running   0          67s
 admin-service-6fcf54cdb5-p7kkf          1/1     Running   0          67s
