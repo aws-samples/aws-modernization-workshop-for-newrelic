@@ -114,6 +114,10 @@ Having clicked on the SQL query, we can now see the complete JSON response of th
 
 ![MysqlQuery](/images/pixie/sql_query.png)
 
+{{% notice tip %}}
+If the particular query isn't showing up, try changing the time window to get older queries. 
+{{% /notice %}}
+
 ### We have found our culprit!
 The SQL query here is selecting **ALL images from the database** without specifying a **WHERE clause** to determine whether or not the image was actually ever approved. You could have also noticed that the number of resulting rows from the query was way too big! The correct query should have been:
 
