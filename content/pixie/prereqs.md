@@ -44,7 +44,8 @@ On the S3 console, click on the newly created S3 bucket by identifying it with t
 ### Getting Secrets
 Head over to [the `My Security Credentials` page](https://console.aws.amazon.com/iam/home?#/security_credentials)
 ![](/images/pixie/0-IAM.png)
-Click `Create Access Key` and save your access key ID and secret.
+Click `Create Access Key` and save your access key ID and secret if you don't already don't have access.
+
 ![](/images/pixie/0-IAM-2.png)
 
 
