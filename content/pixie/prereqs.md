@@ -77,6 +77,10 @@ kubectl get pods --watch
 ```  
 to see when everything is finished spinning up.
 
+{{% notice warning %}}
+You may notice the fetch service on a Crash Loop. This is completely normal because it takes MySQL a few minutes to spin up. 
+{{% /notice %}}
+
 ### You're done! 🎉
 `tinyhats` should now be up and running! All your pods are ready to roll once you see this output from the command `kubectl get pods`:
 
