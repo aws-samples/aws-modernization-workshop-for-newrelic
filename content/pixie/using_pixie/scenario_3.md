@@ -10,10 +10,7 @@ Run the below command in your Cloud9 Terminal.
 cd ~/environment/tinyhats/3-sampleimage
 for f in *.yaml; do envsubst < $f | kubectl apply -f -; done
 ```
-Now, restart the MySQL database to reset your hats! 
-```bash
-kubectl rollout restart deployment mysql
-```
+
 It may take a second for everything to be ready again, so use `kubectl get pods --watch` to monitor the status. Once all the pods are ready, get your `frontend-service` url and let's begin.
 
 ### We shipped a new feature!
@@ -24,7 +21,9 @@ The engineering team at Tinyhat.me has shipped a new feature to allow admins to 
 
 Try navigating to `{FRONTEND URL}/admin?password=ilovecats`, which is the approval interface for admins. 
 
-> **Notice**: The time it takes to load the preview of the hats takes longer than the previous version. A blank black screen appears before finally displaying the hats.
+{{% notice info %}}
+The time it takes to load the preview of the hats takes longer than the previous version. A blank black screen appears before finally displaying the hats.
+{{% /notice %}}
 
 Then, open Pixie to see what's going on! Just like before, run the `px/cluster` script to gain an overview of what is happening in the cluster.
 

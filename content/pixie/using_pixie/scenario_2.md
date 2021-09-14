@@ -10,15 +10,6 @@ Run the below command in your Cloud9 Terminal.
 cd ~/environment/tinyhats/2-lowerCase
 for f in *.yaml; do envsubst < $f | kubectl apply -f -; done
 ```
-Now, restart the MySQL database to reset your hats! It may take a second for everything to be ready again, so use `kubectl get pods --watch` to monitor the status. Once everything is ready, get your `frontend-service` url and let's begin...
-
-```bash
-kubectl rollout restart deployment mysql
-```
-
-{{% notice warning %}}
-You may notice the fetch service on a Crash Loop. This is completely normal because it takes MySQL a few minutes to spin up. 
-{{% /notice %}}
 
 ### And... We have another bug!
 We have been getting reports that certain customers are getting 404 errors in our app! Let's try to figure out what's going on here.
@@ -135,7 +126,7 @@ It looks like we've looped right back to the old culprit, `fetch-service`. Just 
 
 ![fetch-service](/images/pixie/Screen_Shot_2021-09-09_at_10.46.52_PM.png)
 
-Let's confirm what `fetch-service` *should* be returning by filtering for code **200** in the `px/http_data_filtered` script that of the `gateway-service`. If you click on one of the requests, we can see `fetch-service` returns a response body filled with a base64 image.
+Let's confirm what `fetch-service` *should* be returning by filtering for code **200** in the `px/http_data_filtered` script. If you click on one of the requests, we can see `fetch-service` returns a response body filled with a base64 image.
 
 > **Why does this make sense?** `fetch-service` is another layer deeper into the microservices. `gateway-service` is what is exposed to the public, and it forwards information from internal services like `fetch-service`!
 
