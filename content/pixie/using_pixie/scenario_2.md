@@ -29,7 +29,8 @@ First, try requesting for the `PIXIE` hat on your frontend by  - it shouldn't wo
 
 The request doesn't seem to work for the `PIXIE` hat but does work for others, like `pepe`. Let's dig into this further.
 
-On Google Chrome, if you right click, and click `Inspect Element` it opens a console window that logs the HTTP requests being made by the frontend. 
+On Google Chrome, if you right click, and click `Inspect Element` it opens a console window that logs the HTTP requests being made by the frontend. Make sure you click the Console Tab. 
+
 ![image](/images/pixie/2-inspect.png)
 
 > Here we see the console on a web browser, showing that the hat is **404**: Could not be found.
