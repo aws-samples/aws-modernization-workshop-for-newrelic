@@ -98,7 +98,11 @@ mysql-576f9d87d9-xdh2l                  1/1     Running   0          66s
 upload-service-7f57868797-4cmr4         1/1     Running   0          66s
 ``` 
 
-Finally, run `kubectl get services` in your terminal
+Finally, run
+
+```bash
+kubectl get services
+```
 
 ![gateway](/images/pixie/0-kubectl.png)
 
