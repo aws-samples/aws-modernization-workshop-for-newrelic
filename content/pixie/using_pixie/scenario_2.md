@@ -140,7 +140,7 @@ Well, we know that `fetch-service` uses SQL queries to retrieve data, so there m
 ![fetch bad](/images/pixie/2-http-3.png)
 
 ### The Final Stretch
-Navigate to `px/mysql_data` and select the SQL query that queries for a specific type of hat. In this case, we are specifically looking for one that specifies the `description` field as "pixie" or "PIXIE".
+Navigate to `px/mysql_data` and select the SQL query that queries for a specific type of hat. In this case, we are specifically looking for one that specifies the `description` field in the `req_body` as "pixie" or "PIXIE".
 
 ![sql data](/images/pixie/2-sql.png)
 
