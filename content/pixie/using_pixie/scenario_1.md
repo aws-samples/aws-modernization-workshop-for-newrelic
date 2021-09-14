@@ -64,7 +64,7 @@ Below, notice two separate processes:
 1. The `gateway-service` is calling `add-service` which then communicates with `upload-service` to suggest a hat.
 2. The `gateway-service` is calling the `fetch-service` to retrieve the hats to display on the website.
 
-> No moderation is occurring! Yet, the hats added in **process 1** are automatically shown to the public in **process 2.** 
+> No moderation is occurring! The hats added in **process 1** are automatically shown to the public in **process 2.** 
 
 We have now identified that nothing is being moderated (so the admins aren't lying), but we will need to dig a bit further to find the true problem...
 
