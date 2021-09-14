@@ -11,7 +11,13 @@ cd ~/environment/tinyhats/3-sampleimage
 for f in *.yaml; do envsubst < $f | kubectl apply -f -; done
 ```
 
-It may take a second for everything to be ready again, so use `kubectl get pods --watch` to monitor the status. Once all the pods are ready, get your `frontend-service` url and let's begin.
+It may take a second for everything to be ready again, so let's monitor our pods' status by running
+
+```bash
+kubectl get pods --watch
+```
+
+ Once all the pods are ready, get your `frontend-service` url and let's begin.
 
 ### We shipped a new feature!
 ![image](/images/pixie/3-tweet.png)
