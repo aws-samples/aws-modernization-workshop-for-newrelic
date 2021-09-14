@@ -136,7 +136,7 @@ Let's confirm what `fetch-service` *should* be returning by filtering for code *
 
 Filter again for the status **400** codes. After clicking on any of the rows, you can see that in the response body of the request, `fetch-service` returns that the "hat style does not exist". Because we also saw this message from `gateway-service`, we can now confirm that the bug is hidden somewhere in `fetch-service` since it is in the last layer that deals with retrieving images.
 
-The final question is: **How and why is `fetch-service` not able to retrieve the style of PIXIE, likely due to a case-sensitive issue?**
+The final question is: **How and why is `fetch-service` not able to retrieve the style of PIXIE**
 
 Well, we know that `fetch-service` uses SQL queries to retrieve data, so there might be an issue with that.
 
