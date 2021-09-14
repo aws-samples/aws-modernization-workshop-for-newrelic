@@ -128,7 +128,7 @@ It looks like we've looped right back to the old culprit, `fetch-service`. Just 
 
 ![fetch-service](/images/pixie/Screen_Shot_2021-09-09_at_10.46.52_PM.png)
 
-Let's confirm what `fetch-service` *should* be returning by filtering for code **200** in the `px/http_data_filtered` script. Similar to that of the `gateway-service`, `fetch-service` returns a response body filled with a base64 image.
+Let's confirm what `fetch-service` *should* be returning by filtering for code **200** in the `px/http_data_filtered` script that of the `gateway-service`. If you click on one of the requests, we can see `fetch-service` returns a response body filled with a base64 image.
 
 > **Why does this make sense?** `fetch-service` is another layer deeper into the microservices. `gateway-service` is what is exposed to the public, and it forwards information from internal services like `fetch-service`!
 
