@@ -85,7 +85,7 @@ Let's head to `px/http_data_filtered` to figure out the errors that are returnin
 
 ![frontend good](/images/pixie/2-servicestats-1.png)
 
-If you filter for the status **404** codes, the requests that error out, you can see all the failed requests for the "PIXIE" hat the users wanted to try out. Click into one of the requests with a `REQ_PATH` of `/undefined`. As shown by the response body, the frontend is trying to request for an "undefined" hat: *this means that it's likely not the frontend's fault.*
+If you filter for the status **404** codes, the requests that error out, you can see all the failed requests for the "PIXIE" hat the users wanted to try out. Click into one of the requests with a `REQ_PATH` of /undefined`. As shown by the response body, the frontend is trying to request for an "undefined" hat: *this means that it's likely not the frontend's fault.*
 
 ![frontend bad](/images/pixie/2-servicestats-2.png)
 
@@ -97,7 +97,7 @@ Looking at the `px/service_stats` script, we can also see a similar trend, but w
 
 ![gateway service](/images/pixie/Screen_Shot_2021-09-09_at_10.45.10_PM.png)
 
-Using `px/http_data_filtered` again, let's see what a successful request should look like. Filter for **status_code** 200 and click on any result to see that `gateway-service` returns a base64 string for the `frontend-service` to display to users. 
+Using `px/http_data_filtered` again, let's see what a successful request should look like. Filter for **status_code** 200 and click on any result including a `REQ_PATH` of `/<HATNAME>` to see that `gateway-service` returns a base64 string for the `frontend-service` to display to users. 
 ![gateway good](/images/pixie/2-servicestats-3.png)
 
 Filtering for **status_code** 400 gives us a very different scenario. We see that **REQ_PATH** is all `/PIXIE`, as the user is repeatedly trying to access the PIXIE hat. In the body of the response, we can see that `gateway-service` responds with a message stating that the "hat style does not exist" with an error code of `400`. However, that's not particularly helpful either, since **we already know** that the PIXIE hat *appears* to be missing even though it is, in fact, in the MySQL Database because we are able to select it on the frontend. 
