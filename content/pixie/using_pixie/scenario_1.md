@@ -42,7 +42,7 @@ If successful, you should see a response similar to this:
 }
 ```
 
-Now, go back to the frontend and swipe through the gallery of hats. Yikes! Your unapproved picture should be there - that's not supposed to happen.
+Now, go back to the frontend and swipe through the gallery of hats. Make sure to reload the page. Yikes! Your unapproved picture should be there - that's not supposed to happen.
 
 ![image](/images/pixie/1-badhat.gif)
 
