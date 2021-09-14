@@ -76,7 +76,7 @@ Click on the `namespace` parameter and type in `default` to filter the flamegrap
 
 Now that the interface is cleaner, notice the two containers that are running in the flamegraph, `manipulation-service` and `admin-service`.
 
-Focus on `admin-service`, the service we are analyzing in this situation. Notice that a specific function `main.createSampleImages` is being called even more than `main.setupSQLQuery` is. 
+Focus on `admin-service`, the service we are analyzing in this situation. 
 
 ![image](/images/pixie/3-flamegraph-2.png)
 
