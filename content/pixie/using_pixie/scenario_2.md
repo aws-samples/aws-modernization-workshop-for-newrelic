@@ -76,7 +76,7 @@ Wow! Look at that spike in the request error rate. We can see here the the three
 
 Let's head to `px/http_data_filtered` to figure out the errors that are returning for `frontend`. Try editing the **status_code** filter to view the requests for different codes. Below, we have a collection of the status **200** codes, which are the requests that were successful. 
 
-> The frontend seems to be functioning properly for other images. The correc response body should be an image in base64.
+> The frontend seems to be functioning properly for other images. The correct response body should be an image in base64.
 
 ![frontend good](/images/pixie/2-servicestats-1.png)
 
