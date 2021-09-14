@@ -8,7 +8,7 @@ draft: false
 ### Set up Scenario #1
 Run the below command in your Cloud9 Terminal.
 ```bash
-cd ~/environment/1-mysql
+cd ~/environment/tinyhats/1-mysql
 for f in *.yaml; do envsubst < $f | kubectl apply -f -; done
 ```
 

@@ -65,7 +65,7 @@ wget -q -O tmp.zip https://tinyhatkubefiles.s3.us-west-2.amazonaws.com/tinyhats.
 To apply the exported environment variables, run
 
 ```bash 
-cd ~/environment/0-setup
+cd ~/environment/tinyhats/0-setup
 for f in *.yaml; do envsubst < $f | kubectl apply -f -; done
 ```
 

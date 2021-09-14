@@ -7,7 +7,7 @@ draft: false
 ### Set up Scenario #2
 Run the below command in your Cloud9 Terminal.
 ```bash
-cd ~/environment/2-lowerCase
+cd ~/environment/tinyhats/2-lowerCase
 for f in *.yaml; do envsubst < $f | kubectl apply -f -; done
 ```
 Now, restart the MySQL database to reset your hats! It may take a second for everything to be ready again, so use `kubectl get pods --watch` to monitor the status. Once everything is ready, get your `frontend-service` url and let's begin...

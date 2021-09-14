@@ -7,19 +7,18 @@ draft: false
 ### Set up Scenario #3
 Run the below command in your Cloud9 Terminal.
 ```bash
-cd 3-sampleimage
+cd ~/environment/tinyhats/3-sampleimage
 for f in *.yaml; do envsubst < $f | kubectl apply -f -; done
 ```
 Now, restart the MySQL database to reset your hats! 
 ```bash
 kubectl rollout restart deployment mysql
 ```
-It may take a second for everything to be ready again, so use `kubectl get pods --watch` to monitor the status. Once everything is "ready," get your `frontend-service` url and let's begin.
+It may take a second for everything to be ready again, so use `kubectl get pods --watch` to monitor the status. Once all the pods are ready, get your `frontend-service` url and let's begin.
+
 ### We shipped a new feature!
 ![image](/images/pixie/3-tweet.png)
 The engineering team at Tinyhat.me has shipped a new feature to allow admins to preview their hats before it gets approved. However, initial admin beta testers have revealed some frustrations with the service, **as page load speeds are reaching unbearable lengths.**
-
-Engineering at TinyHat.Me is concerned with the `frontend-service`. Attempt to use Pixie to determine what is causing the long page load times.
 
 ### Replicating the Issue
 
