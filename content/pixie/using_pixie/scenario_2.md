@@ -10,11 +10,14 @@ Run the below command in your Cloud9 Terminal.
 cd 2-lowerCase
 for f in *.yaml; do envsubst < $f | kubectl apply -f -; done
 ```
-Now, restart the MySQL database to reset your hats! It may take a second for everything to be ready again, so use `kubectl get pods --watch` to monitor the status. Once everything is "ready," get your `frontend-service` url and let's begin...
+Now, restart the MySQL database to reset your hats! It may take a second for everything to be ready again, so use `kubectl get pods --watch` to monitor the status. Once everything is ready, get your `frontend-service` url and let's begin...
 
 ```bash
 kubectl rollout restart deployment mysql
 ```
+
+> You may notice the fetch service on a Crash Loop. This is completely normal because it takes MySQL a few minutes to spin up. 
+
 ### And... We have another bug!
 We have been getting reports that certain customers are getting 404 errors in our app! Let's try to figure out what's going on here.
 ![image](https://user-images.githubusercontent.com/69332964/132967850-c1f68202-6f53-44a7-9f19-13283b2d9c24.png)
@@ -22,9 +25,11 @@ We have been getting reports that certain customers are getting 404 errors in ou
 First, try requesting for the `PIXIE` hat on your frontend by  - it shouldn't work. Remember to use `kubectl get services` in order to get the URL. Then, try out any other hat; Bob Ross should pop up.
 ![ezgif-4-a3dc76ed42f6](https://user-images.githubusercontent.com/69332964/132959460-b0126cd9-63f8-4d0f-862b-a399b6697151.gif)
 
-Hmm the request doesn't seem to work for the `PIXIE` hat but does work for others, like `pepe`. Let's dig into this further...
+The request doesn't seem to work for the `PIXIE` hat but does work for others, like `pepe`. Let's dig into this further.
 
-![image](https://user-images.githubusercontent.com/69332964/133002083-d6e11948-5230-44e7-9504-3d3aebb19b9d.png)
+On Google Chrome, if you right click, and click `Inspect Element` it opens a console window that logs the HTTP requests being made by the frontend. 
+![image](/images/pixie/2-inspect.png)
+
 > Here we see the console on a web browser, showing that the hat is **404**: Could not be found.
 
 Let's manually test this by making a request for the PIXIE hat. **Remember to change the {GATEWAY_URL_ENDPOINT} into your `gateway-service` url, which can be retrieved using `kubectl get services`.**
@@ -143,4 +148,3 @@ We found the culprit - `fetch-service` is making a case-sensitive MySQL call fro
 > **What happened?** Based on what we learned from Pixie, the code in `fetch-service` probably made the hat style lowercase and then attempted to query for the lowercase hat with a `BINARY` SQL call. Since there are no hats named `pixie`, everything errored out!
 
 #### The ticket has been filed and the fix will be deployed shortly! Onwards!
-![image](https://user-images.githubusercontent.com/69332964/133007226-b4974838-ad30-4242-9b60-8231d2355cf3.png)

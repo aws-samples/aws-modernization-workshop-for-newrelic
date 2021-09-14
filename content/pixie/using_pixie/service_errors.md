@@ -120,6 +120,3 @@ The SQL query here is selecting **ALL images from the database** without specify
 ```sql
 SELECT * FROM main.images WHERE approve="true"
 ```
-
-![image](https://user-images.githubusercontent.com/69332964/132967809-dc9796a2-d033-4321-8303-02e854eec0f1.png)
-
