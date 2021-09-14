@@ -33,9 +33,7 @@ To obtain your API gateway address, execute `kubectl get services` in your termi
 
 
 ```bash
-curl --location --request POST 'http://your_api_gateway/add' \
-> --form 'name="Tiny Hats are cool"' \
-> --form 'image=@"/home/ec2-user/environment/name_of_image.jpg"'
+curl --location --request POST ${GATEWAYSERVICE}/add --form 'name="Tiny Hats are cool"' --form 'image=@"/home/ec2-user/environment/hat.png"'
 ```
 
 If successful, you should see a response similar to this:

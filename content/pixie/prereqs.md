@@ -86,4 +86,11 @@ mysql-576f9d87d9-xdh2l                  1/1     Running   0          66s
 upload-service-7f57868797-4cmr4         1/1     Running   0          66s
 ``` 
 
-To test, run `kubectl get services` and copy the URI corresponding to the `frontend-service`. Paste the URL in the browser. You should be greeted with the wonderful face of Bob Ross. 
+Finally, run `kubectl get services` and export the URLs associated with the `Frontend-Service` and `Gateway-Service` the two variables by running
+
+```bash
+export GATEWAYSERVICE = INSERTGATEWAYSERVICEURL
+export FRONTENDSERVICE = INSERTFRONTENDSERVICEURL
+```
+
+Try pasting the URL for `Frontend-Service` in the browser. You should be greeted with the wonderful face of Bob Ross. 
