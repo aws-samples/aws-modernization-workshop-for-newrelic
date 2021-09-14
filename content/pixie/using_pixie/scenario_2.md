@@ -42,7 +42,7 @@ Just like the user in the Tweet said, the GET request for the "PIXIE" hat also r
 
 [❓](#1-whats-wrong-with-the-frontend) The `frontend-service` is not displaying the hat image correctly due to the hat's special casing. 
 
-[❓](#2-hmm-is-it-gateway-services-issue) The `gateway-service` making an HTTP request for only hats with lowercase styles. 
+[❓](#2-is-it-gateway-services-issue) The `gateway-service` making an HTTP request for only hats with lowercase styles. 
 
 [❓](#3-is-it-an-issue-with-data-storage) The `upload-service` corrupted the hat's data when it was uploaded to the MySQl database and/or the S3 Bucket. 
 
@@ -82,7 +82,7 @@ If you filter for the status **404** codes, the requests that error out, you can
 
 We don't get much information other than the fact that the `PIXIE` hat appears as undefined, but can return other hats. Let's see what the gateway service is getting. 
 
-### 2. Hmm.. Is it `gateway-service`'s issue?
+### 2. Is it `gateway-service`'s issue?
 Looking at the `px/service_stats` script, we can also see a similar trend, but with the addition of **400** status codes. Also, notice another high spike in error rate.
 > **Why is that?** *400* codes mean that there is an error. *404* codes mean that something could not be found. For `frontend-service`, it received *404* codes because it could not find an "undefined" hat. In this case, it seems like something actually went wrong and had an error!
 
