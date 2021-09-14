@@ -22,15 +22,7 @@ Your TinyHat.me API has already taken off and users are actively requesting & up
 Let's see if we can use Pixie to figure out why image uploads are bypassing our moderation queue.
 
 ### Replicating the Issue
-First, let's upload a hat ourselves to see the bug in action.  You can use any picture you like and upload it to your Cloud9 environment via the **File** menu as follows:
-
-![UploadCloud9](/images/pixie/upload_cloud9.png)
-
-Now, let's upload image using the TinyHat.me API making sure to replace ***your_api_gateway*** with the actual address of your gateway service and  ***name_of_image.jpg*** with the actual name of the image file you uploaded to your Cloud9 environment.
-
-To obtain your API gateway address, execute `kubectl get services` in your terminal and copy paste the URL corresponding to `gateway-service`.
-![gateway](https://user-images.githubusercontent.com/69332964/132958710-42ea09d0-a46a-44a0-b13a-0ff85d2ca175.png)
-
+First, let's upload a hat ourselves to see the bug in action.  
 
 ```bash
 curl --location --request POST ${GATEWAYSERVICE}/add --form 'name="Tiny Hats are cool"' --form 'image=@"/home/ec2-user/environment/hat.png"'
@@ -51,6 +43,7 @@ If successful, you should see a response similar to this:
 ```
 
 Now, go back to the frontend and swipe through the gallery of hats. Yikes! Your unapproved picture should be there - that's not supposed to happen.
+
 ### Debugging with Pixie
 Let's hop back over to Pixie and see if we can figure out what's going on. Refer back to "Run a PxL script" to recall how to access the Pixie dashboard.
 #### 1. Are the admins secretly approving bad hats?

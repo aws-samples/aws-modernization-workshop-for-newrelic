@@ -55,8 +55,14 @@ export S3_SECRET=[AWS SECRET KEY]
 
 ### Working with EKS
 
-Lets download and deploy the [Tiny Hats zip file](https://tinyhatkubefiles.s3.us-west-2.amazonaws.com/tinyhats.zip)
-To apply the exported environment variables,
+Lets download and deploy the Tiny Hats Application. 
+
+First run the bash command to download the kubefiles 
+```bash
+wget -q -O tmp.zip https://tinyhatkubefiles.s3.us-west-2.amazonaws.com/tinyhats.zip && unzip tmp.zip && rm tmp.zip
+```
+
+To apply the exported environment variables, run
 
 ```bash 
 cd ~/environment/0-setup
@@ -86,11 +92,15 @@ mysql-576f9d87d9-xdh2l                  1/1     Running   0          66s
 upload-service-7f57868797-4cmr4         1/1     Running   0          66s
 ``` 
 
-Finally, run `kubectl get services` and export the URLs associated with the `Frontend-Service` and `Gateway-Service` the two variables by running
+Finally, run `kubectl get services` in your terminal
+
+![gateway](https://user-images.githubusercontent.com/69332964/132958710-42ea09d0-a46a-44a0-b13a-0ff85d2ca175.png)
+
+Export the URLs associated with the `Gateway-Service` by running. Make sure to replace `INSERTGATEWAYSERVICEURL` with your Gateway Service URL from above.
 
 ```bash
 export GATEWAYSERVICE = INSERTGATEWAYSERVICEURL
-export FRONTENDSERVICE = INSERTFRONTENDSERVICEURL
 ```
 
-Try pasting the URL for `Frontend-Service` in the browser. You should be greeted with the wonderful face of Bob Ross. 
+
+Try pasting the URL for `Frontend-Service` in the browser. You should be greeted with the wonderful face of Bob Ross. Keep this URL handy as you will need it later in the workshop. 

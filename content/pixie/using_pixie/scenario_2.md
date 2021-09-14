@@ -102,7 +102,7 @@ The other potential source of error could be coming from the `upload-service`, w
 Run the below command in you Cloud9 terminal, making sure to replace `{GATEWAY_URL}` and `"/Users/example/Downloads/hat.jpeg"` while a file path from your own machine. We used the name `wHy tHiS haT` because it has strange capitalization.
 
 ```bash
-curl --location --request POST ${GATEWAYSERVICE}/add --form 'name="wHy tHiS haT"' --form 'image=@"/home/ec2-user/environment/hat.png"'
+curl --location --request POST ${GATEWAYSERVICE}/add --form 'name="wHy tHiS haT"' --form 'image=@"/home/ec2-user/environment/tinyhats/badhat.png"'
 ```
 
 Now, switch back to your New Relic One Pixie dashboard and filter take a look at `upload-service` using `px/http_data_filtered`.
