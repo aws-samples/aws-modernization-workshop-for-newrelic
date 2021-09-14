@@ -95,8 +95,7 @@ Filtering for **status_code** 400 gives us a very different scenario. We see tha
 ![gateway bad](/images/pixie/2-status.png)
 Two services down, and two more to go!
 ### 3. Is it an issue with data storage?
-The other potential source of error could be coming from the `upload-service`, which is in charge of uploading the image. Once again using the helpful `px/service_stats` script, we can gain a general overview of how our `upload-service` is doing.
-
+The other potential source of error could be coming from the `upload-service`, which is in charge of uploading the image.
 
 Run the below command in you Cloud9 terminal. We used the name `wHy tHiS haT` because it has strange capitalization.
 
