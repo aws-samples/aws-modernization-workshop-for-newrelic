@@ -134,7 +134,7 @@ Let's confirm what `fetch-service` *should* be returning by filtering for code *
 
 ![fetch good](/images/pixie/2-http-2.png)
 
-Filter again for the status **400** codes. In the response body, `fetch-service` returns that the "hat style does not exist". Because we also saw this message from `gateway-service`, we can now confirm that the bug is hidden somewhere in `fetch-service` since it is in the last layer that deals with retrieving images.
+Filter again for the status **400** codes. After clicking on any of the rows, you can see that in the response body of the request, `fetch-service` returns that the "hat style does not exist". Because we also saw this message from `gateway-service`, we can now confirm that the bug is hidden somewhere in `fetch-service` since it is in the last layer that deals with retrieving images.
 
 The final question is: **How and why is `fetch-service` not able to retrieve the style of PIXIE, likely due to a case-sensitive issue?**
 
