@@ -69,7 +69,7 @@ The background color of each box in the flamegraph adds an extra dimension of da
 - Green bars represent kernel code.
 
 #### Running `px/perf_flamegraph`
-Using the dropdown, search for and select the `px/perf_flamegraph` script. However, this flamegraph has too much information, **we want to narrow this down to the namespace that we care about: `/default`.** This contains all of the services specifically pertaining to the deployment of TinyHat.Me, and excludes other services that monitor the Kubernetes cluster's health.
+Using the dropdown, search for and select the `px/perf_flamegraph` script. However, this flamegraph has too much information, **we want to narrow this down to the namespace that we care about: `default`.** This contains all of the services specifically pertaining to the deployment of TinyHat.Me, and excludes other services that monitor the Kubernetes cluster's health.
 
 Click on the `namespace` parameter and type in `default` to filter the flamegraph by the namespace we want to focus on.
 ![image](/images/pixie/3-flamegraph-1.png)
