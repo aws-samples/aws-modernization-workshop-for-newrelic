@@ -24,7 +24,12 @@ You may notice the fetch service on a Crash Loop. This is completely normal beca
 We have been getting reports that certain customers are getting 404 errors in our app! Let's try to figure out what's going on here.
 ![image](/images/pixie/2-tweet.png)
 ### Replicating the Issue
-First, try requesting for the `PIXIE` hat on your frontend by  - it shouldn't work. Remember to use `kubectl get services` in order to get the URL. Then, try out any other hat; Bob Ross should pop up.
+First, try requesting for the `PIXIE` hat on your frontend by  - it shouldn't work. Remember to use `kubectl get services` in order to get the URL. Then, try out any other hat; Bob Ross should pop up. 
+
+{{% notice tip %}}
+Reload the webpage if the `PIXIE` hat isn't showing up in your frontend.  
+{{% /notice %}}
+
 ![ezgif-4-a3dc76ed42f6](/images/pixie/2-gif.gif)
 
 The request doesn't seem to work for the `PIXIE` hat but does work for others, like `pepe`. Let's dig into this further.

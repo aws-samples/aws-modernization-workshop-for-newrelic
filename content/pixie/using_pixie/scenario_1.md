@@ -108,12 +108,11 @@ Once again based on **RESP_STATUS**, `fetch-service` does not seem to be errorin
 Now that we know it's an issue with retrieving data, let's take a look at the SQL queries this cluster runs by executing `px/mysql_data` and clicking on the SQL query of first result we receive, which happens to be from `fetch-service`:
 
 ![MysqlData](/images/pixie/mysql_data.png)
-![image](/images/pixie/mysql_data-2.png)
+![image](/images/pixie/mysql_data-2.png) 
 
-Having clicked on the SQL query, we can now see the complete JSON response of this particular transaction, which includes the full SQL query and the number of rows:
+Having clicked on the SQL query, we can now see the complete JSON response of this particular transaction, which includes the full SQL query similar to this. 
 
 ![MysqlQuery](/images/pixie/sql_query.png)
-![image](/images/pixie/sql_query-2.png)
 
 ### We have found our culprit!
 The SQL query here is selecting **ALL images from the database** without specifying a **WHERE clause** to determine whether or not the image was actually ever approved. You could have also noticed that the number of resulting rows from the query was way too big! The correct query should have been:
