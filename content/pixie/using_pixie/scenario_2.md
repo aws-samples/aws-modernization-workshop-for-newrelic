@@ -32,9 +32,10 @@ On Google Chrome, if you right click, and click `Inspect Element` it opens a con
 
 > Here we see the console on a web browser, showing that the hat is **404**: Could not be found.
 
-Let's manually test this by making a request for the PIXIE hat. **Remember to change the {GATEWAY_URL_ENDPOINT} into your `gateway-service` url, which can be retrieved using `kubectl get services`.**
-```jsx
-curl --location --request GET '{GATEWAY_URL_ENDPOINT}/PIXIE'
+Let's manually test this by making a request for the PIXIE hat. 
+
+```bash
+curl --location --request GET ${GATEWAYSERVICE}/PIXIE
 ```
 Just like the user in the Tweet said, the GET request for the "PIXIE" hat also returns an error and a message saying that it does not exist. Strange!
 
@@ -98,12 +99,12 @@ Two services down, and two more to go!
 The other potential source of error could be coming from the `upload-service`, which is in charge of uploading the image. Once again using the helpful `px/service_stats` script, we can gain a general overview of how our `upload-service` is doing.
 
 
-Run the below command in you Cloud9 terminal, making sure to replace `{GATEWAY_URL}` and `"/Users/example/Downloads/hat.jpeg"` while a file path from your own machine. We used the name `wHy tHiS haT` because it has strange capitlization.
+Run the below command in you Cloud9 terminal, making sure to replace `{GATEWAY_URL}` and `"/Users/example/Downloads/hat.jpeg"` while a file path from your own machine. We used the name `wHy tHiS haT` because it has strange capitalization.
+
 ```bash
-curl --location --request POST '{GATEWAY_URL}/add' \
---form 'name="wHy tHiS haT"' \
---form 'image=@"/Users/example/Downloads/hat.jpeg"'
+curl --location --request POST ${GATEWAYSERVICE}/add --form 'name="wHy tHiS haT"' --form 'image=@"/home/ec2-user/environment/hat.png"'
 ```
+
 Now, switch back to your New Relic One Pixie dashboard and filter take a look at `upload-service` using `px/http_data_filtered`.
 > **Optional:** Try filtering for the **REQ_PATH** of `/upload` to receive less results!
 
