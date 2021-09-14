@@ -25,7 +25,7 @@ Let's see if we can use Pixie to figure out why image uploads are bypassing our 
 First, let's upload a hat ourselves to see the bug in action.  
 
 ```bash
-curl --location --request POST ${GATEWAYSERVICE}/add --form 'name="Tiny Hats are cool"' --form 'image=@"/home/ec2-user/environment/hat.png"'
+curl --location --request POST ${GATEWAYSERVICE}/add --form 'name="Tiny Hats are cool"' --form 'image=@"/home/ec2-user/environment/tinyhats/badhat.png"'
 ```
 
 If successful, you should see a response similar to this:
@@ -43,6 +43,11 @@ If successful, you should see a response similar to this:
 ```
 
 Now, go back to the frontend and swipe through the gallery of hats. Yikes! Your unapproved picture should be there - that's not supposed to happen.
+
+![image](/images/pixie/1-badhat.gif)
+
+**Notice the unauthorized hat at the very end.**
+
 
 ### Debugging with Pixie
 Let's hop back over to Pixie and see if we can figure out what's going on. Refer back to "Run a PxL script" to recall how to access the Pixie dashboard.
