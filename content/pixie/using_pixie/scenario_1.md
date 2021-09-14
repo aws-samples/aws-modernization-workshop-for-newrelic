@@ -72,7 +72,7 @@ We have now identified that nothing is being moderated (so the admins aren't lyi
 
 #### 2. How are the services communicating?
 
-Since we know that the admins didn't approve the inapproriate hats, we can continue to narrow down the issue in Pixie by viewing the HTTP requests from pod to pod. The question now is: Are all of our services are correctly communicating with one another? Here are the suspect microservices - the ones that modify and send the hat data:
+Since we know that the admins didn't approve the inappropriate hats, we can continue to narrow down the issue in Pixie by viewing the HTTP requests from pod to pod. The question now is: Are all of our services are correctly communicating with one another? Here are the suspect microservices - the ones that modify and send the hat data:
 * `add-service`
 * `fetch-service`
 
