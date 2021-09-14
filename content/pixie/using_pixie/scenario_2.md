@@ -16,7 +16,9 @@ Now, restart the MySQL database to reset your hats! It may take a second for eve
 kubectl rollout restart deployment mysql
 ```
 
-> You may notice the fetch service on a Crash Loop. This is completely normal because it takes MySQL a few minutes to spin up. 
+{{% notice warning %}}
+You may notice the fetch service on a Crash Loop. This is completely normal because it takes MySQL a few minutes to spin up. 
+{{% /notice %}}
 
 ### And... We have another bug!
 We have been getting reports that certain customers are getting 404 errors in our app! Let's try to figure out what's going on here.
