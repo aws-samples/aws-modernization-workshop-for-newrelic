@@ -57,7 +57,7 @@ Let's open Pixie to figure out exactly what's going on.
 
 Click into the particular namespace
 
-![Screen Shot 2021-09-09 at 10.07.43 PM.png](/images/pixie/Screen_Shot_2021-09-09_at_10.07.43_PM.png)
+![Screen Shot 2021-09-09 at 10.07.43 PM.png](/images/pixie/2-errorrate-1.png)
 
 As you can see in the **ERROR_RATE** column, it looks like the error rates are high for the `gateway-service`, `frontend-service`, and `fetch-service`. 
 
