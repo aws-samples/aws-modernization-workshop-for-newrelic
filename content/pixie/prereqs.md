@@ -41,11 +41,12 @@ On the S3 console, click on the newly created S3 bucket by identifying it with t
 3. Click `Save changes`. If you configured your bucket correctly, you should see the labels `Publicly accessible` and Access labeled as `Public`.
 ![](/images/cYq2MYc.png)
 
-### Shhh.. Secrets!
-Click on your account name and click `My Security Credentials`.
-![](/images/mvBb9l0.png)
+### Getting Secrets
+Head over to [the `My Security Credentials` page](https://console.aws.amazon.com/iam/home?#/security_credentials)
+![](/images/pixie/0-IAM.png)
+Click `Create Access Key` and save your access key ID and secret.
+![](/images/pixie/0-IAM-2.png)
 
-Follow [this tutorial](https://www.msp360.com/resources/blog/how-to-find-your-aws-access-key-id-and-secret-access-key/) and keep your access key ID and secret somewhere safe!
 
 Finally, modify these commands and enter them in your terminal to set the environment variables for secrets. Use the same terminal window to proceed to the next step.
 ``` 
