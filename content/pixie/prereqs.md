@@ -82,7 +82,10 @@ You may notice the fetch service on a Crash Loop. This is completely normal beca
 {{% /notice %}}
 
 ### You're done! 🎉
-`tinyhats` should now be up and running! All your pods are ready to roll once you see this output from the command `kubectl get pods`:
+`tinyhats` should now be up and running! All your pods are ready to roll once you see this output from the command 
+```bash
+kubectl get pods --watch
+```
 
 ```
 tinyhats:~/environment/tinyhats $ kubectl get pods --watch
