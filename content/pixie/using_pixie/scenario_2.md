@@ -34,7 +34,7 @@ Reload the webpage if the `PIXIE` hat isn't showing up in your frontend.
 
 The request doesn't seem to work for the `PIXIE` hat but does work for others, like `pepe`. Let's dig into this further.
 
-On Google Chrome, if you right click, and click `Inspect Element` it opens a console window that logs the HTTP requests being made by the frontend. Make sure you click the Console Tab. 
+On Google Chrome, if you right click, and click `Inspect` it opens a console window that logs the HTTP requests being made by the frontend. Make sure you click the Console Tab. 
 
 ![image](/images/pixie/2-inspect.png)
 
@@ -85,7 +85,7 @@ Let's head to `px/http_data_filtered` to figure out the errors that are returnin
 
 ![frontend good](/images/pixie/2-servicestats-1.png)
 
-If you filter for the status **404** codes, the requests that error out, you can see all the failed requests for the "PIXIE" hat the users wanted to try out. As shown by the response body, the frontend is trying to request for an "undefined" hat: *this means that it's likely not the frontend's fault.*
+If you filter for the status **404** codes, the requests that error out, you can see all the failed requests for the "PIXIE" hat the users wanted to try out. Click into one of the requests with a `REQ_PATH` of `/undefined`. As shown by the response body, the frontend is trying to request for an "undefined" hat: *this means that it's likely not the frontend's fault.*
 
 ![frontend bad](/images/pixie/2-servicestats-2.png)
 
