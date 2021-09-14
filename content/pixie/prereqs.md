@@ -95,7 +95,7 @@ upload-service-7f57868797-4cmr4         1/1     Running   0          66s
 
 Finally, run `kubectl get services` in your terminal
 
-![gateway](https://user-images.githubusercontent.com/69332964/132958710-42ea09d0-a46a-44a0-b13a-0ff85d2ca175.png)
+![gateway](/images/pixie/0-kubectl.png)
 
 Export the URLs associated with the `Gateway-Service` by running. Make sure to replace `INSERTGATEWAYSERVICEURL` with your Gateway Service URL from above.
 

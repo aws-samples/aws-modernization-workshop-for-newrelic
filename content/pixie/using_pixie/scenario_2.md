@@ -114,7 +114,7 @@ There is one clear difference between `upload-service` and the other two - all t
 
 > One thing you might have noticed is that the PIXIE hat style is **all caps** while the other working ones are **lowercase**. Let's prove that the `upload-service` is not causing this discrepancy. 
 
-Find the request that corresponds to the hat we just sent, "wHy tHiS haT". You should notice that the `description` field is correct with accurate capilization.
+Find the request that has a body that has the description of the hat we just sent, "wHy tHiS haT". You should notice that the `description` field is correct with accurate capilization.
 
 ![upload good](https://user-images.githubusercontent.com/62436772/133001604-30fafedf-eeed-4471-8286-3b7663da87cc.png)
 
