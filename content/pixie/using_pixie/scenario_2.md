@@ -120,9 +120,11 @@ There is one clear difference between `upload-service` and the other two - all t
 
 ![upload service](/images/pixie/2-http.png)
 
-> One thing you might have noticed is that the PIXIE hat style is **all caps** while the other working ones are **lowercase**. Let's prove that the `upload-service` is not causing this discrepancy. 
+Let's switch back to the `px/http_data_filtered` script and filter by `upload-service`
 
 Find the request that has a body that has the description of the hat we just sent, "wHy tHiS haT", and click on it. You should notice that the `description` field is correct with accurate capilization.
+
+> One thing you might have noticed is that the PIXIE hat style is **all caps** while the other working ones are **lowercase**. Let's prove that the `upload-service` is not causing this discrepancy. 
 
 ![upload good](/images/pixie/2-http-1.png)
 
