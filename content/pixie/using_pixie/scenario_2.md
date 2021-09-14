@@ -20,10 +20,10 @@ kubectl rollout restart deployment mysql
 
 ### And... We have another bug!
 We have been getting reports that certain customers are getting 404 errors in our app! Let's try to figure out what's going on here.
-![image](https://user-images.githubusercontent.com/69332964/132967850-c1f68202-6f53-44a7-9f19-13283b2d9c24.png)
+![image](/images/pixie/2-tweet.png)
 ### Replicating the Issue
 First, try requesting for the `PIXIE` hat on your frontend by  - it shouldn't work. Remember to use `kubectl get services` in order to get the URL. Then, try out any other hat; Bob Ross should pop up.
-![ezgif-4-a3dc76ed42f6](https://user-images.githubusercontent.com/69332964/132959460-b0126cd9-63f8-4d0f-862b-a399b6697151.gif)
+![ezgif-4-a3dc76ed42f6](/images/pixie/2-gif.gif)
 
 The request doesn't seem to work for the `PIXIE` hat but does work for others, like `pepe`. Let's dig into this further.
 
@@ -67,7 +67,7 @@ However, this does not provide much detail on what's actually going on - except 
 ### 1. What's wrong with the frontend?
 Let's figure out what's going on each service. Let's first go to the `px/service_stats` script and select the `frontend-service`:
 
-![service-stats](https://user-images.githubusercontent.com/69332964/132999302-59b833ef-f461-4f73-b54f-235c9386f362.png)
+![service-stats](/images/pixie/2-servicestats.png)
 
 Wow! Look at that spike in the request error rate. We can see here the the three status codes that are being returned are **404, 304, and 200**. 
 
@@ -75,11 +75,11 @@ Let's head to `px/http_data_filtered` to figure out the errors that are returnin
 
 > The frontend seems to be functioning properly for other images. The correc response body should be an image in base64.
 
-![frontend good](https://user-images.githubusercontent.com/69332964/133001113-4323ddcc-537b-4e1a-89d3-c52fd6f91112.png)
+![frontend good](/images/pixie/2-servicestats-1.png)
 
 If you filter for the status **404** codes, the requests that error out, you can see all the failed requests for the "PIXIE" hat the users wanted to try out. As shown by the response body, the frontend is trying to request for an "undefined" hat: *this means that it's likely not the frontend's fault.*
 
-![frontend bad](https://user-images.githubusercontent.com/69332964/133000775-f1f1b99e-76cb-4147-949a-be14925165cb.png)
+![frontend bad](/images/pixie/2-servicestats-2.png)
 
 We don't get much information other than the fact that the `PIXIE` hat appears as undefined, but can return other hats. Let's see what the gateway service is getting. 
 
@@ -90,10 +90,10 @@ Looking at the `px/service_stats` script, we can also see a similar trend, but w
 ![gateway service](/images/pixie/Screen_Shot_2021-09-09_at_10.45.10_PM.png)
 
 Using `px/http_data_filtered` again, let's see what a successful request should look like. Filter for **status_code** 200 to see that `gateway-service` should return back base64 for the `frontend-service` to display to users.
-![gateway good](https://user-images.githubusercontent.com/62436772/133001071-ff151790-5505-41ed-a78f-250a3a3bc8c9.png)
+![gateway good](/images/pixie/2-servicestats-3.png)
 
 Filtering for **status_code** 400 gives us a very different scenario. We see that **REQ_PATH** is all `/PIXIE`, as the user is repeatedly trying to access the PIXIE hat. In the body of the response, we can see that `gateway-service` responds with a message stating that the "hat style does not exist" with an error code of `400`. However, that's not particularly helpful either, since **we already know** that the PIXIE hat *appears* to be missing even though it is, in fact, in the MySQL Database because we are able to select it on the frontend. 
-![gateway bad](https://user-images.githubusercontent.com/62436772/133001102-47febea9-ceb4-42a1-8592-756d1edec882.png)
+![gateway bad](/images/pixie/2-status.png)
 Two services down, and two more to go!
 ### 3. Is it an issue with data storage?
 The other potential source of error could be coming from the `upload-service`, which is in charge of uploading the image. Once again using the helpful `px/service_stats` script, we can gain a general overview of how our `upload-service` is doing.
@@ -110,13 +110,13 @@ Now, switch back to your New Relic One Pixie dashboard and filter take a look at
 
 There is one clear difference between `upload-service` and the other two - all the codes are **200**! This service is happy and healthy and is not erroring out. But, we still need to collect some evidence to be sure that **it is not storing the hat style incorrectly.**
 
-![upload service](https://user-images.githubusercontent.com/62436772/133001616-bb3fc359-c8b1-48dd-8767-edf331a3520a.png)
+![upload service](/images/pixie/2-http.png)
 
 > One thing you might have noticed is that the PIXIE hat style is **all caps** while the other working ones are **lowercase**. Let's prove that the `upload-service` is not causing this discrepancy. 
 
 Find the request that has a body that has the description of the hat we just sent, "wHy tHiS haT". You should notice that the `description` field is correct with accurate capilization.
 
-![upload good](https://user-images.githubusercontent.com/62436772/133001604-30fafedf-eeed-4471-8286-3b7663da87cc.png)
+![upload good](/images/pixie/2-http-1.png)
 
 Once again by process of elimination, we are down to the main suspect: `fetch-service`. `upload-service` has been proved innocent!
 
@@ -129,7 +129,7 @@ Let's confirm what `fetch-service` *should* be returning by filtering for code *
 
 > **Why does this make sense?** `fetch-service` is another layer deeper into the microservices. `gateway-service` is what is exposed to the public, and it forwards information from internal services like `fetch-service`!
 
-![fetch good](https://user-images.githubusercontent.com/62436772/133001041-f8641e1a-a590-4ae5-bfd5-1b5dcb26fb92.png)
+![fetch good](/images/pixie/2-http-2.png)
 
 Filter again for the status **400** codes. In the response body, `fetch-service` returns that the "hat style does not exist". Because we also saw this message from `gateway-service`, we can now confirm that the bug is hidden somewhere in `fetch-service` since it is in the last layer that deals with retrieving images.
 
@@ -137,12 +137,12 @@ The final question is: **How and why is `fetch-service` not able to retrieve the
 
 Well, we know that `fetch-service` uses SQL queries to retrieve data, so there might be an issue with that.
 
-![fetch bad](https://user-images.githubusercontent.com/69332964/133000635-22157085-825d-4d97-9a8b-ddb6d2ae7030.png)
+![fetch bad](/images/pixie/2-http-3.png)
 
 ### The Final Stretch
 Navigate to `px/mysql_data` and select the SQL query that queries for a specific type of hat. In this case, we are specifically looking for one that specifies the `description` field as "pixie" or "PIXIE".
 
-![sql data](https://user-images.githubusercontent.com/69332964/133001889-d22723d8-6b56-421d-b535-ac083fcbdf7c.png)
+![sql data](/images/pixie/2-sql.png)
 
 We found the culprit - `fetch-service` is making a case-sensitive MySQL call from the `fetch` function with a lowercase "pixie." 
 

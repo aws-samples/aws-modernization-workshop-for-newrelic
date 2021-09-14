@@ -28,7 +28,7 @@ Try navigating to `{FRONTEND URL}/admin?password=ilovecats`, which is the approv
 
 Then, open Pixie to see what's going on! Just like before, run the `px/cluster` script to gain an overview of what is happening in the cluster.
 
-![image](https://user-images.githubusercontent.com/69332964/132966785-a29c4d74-153b-4f01-8c10-cb618e8e99b7.png)
+![image](/images/pixie/3-cluster-0.png)
 
 Scroll down to the **Services** section and notice the latency for each different service.
 
