@@ -1,18 +1,77 @@
-# Observability with New Relic One
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/aws-samples/eks-workshop) 
 
-We are in the midst of the "Age of the Customer". Customers are expecting more: More services, more data, faster and more innovative solutions. Organizations and Industries must be agile and keep pace with customer expectations or risk becoming irrelevant. These expectations are pushing organizations into rapid transformational changes. These changes lead to complexity: More changes, more data, more dev teams, and just an overall faster rate of change.
+# eksworkshop
 
-Observability is required to ensure that changes do not affect users interactions and to measure success and/or a degradation affecting customers. Observability is the practice of instrumenting systems with tools to gather actionable data that provides not only the *when* of an error or issue, but more importantly the *why*. The latter is what teams need to respond quickly and resolve emergencies in modern software.
+### Setup:
+#### Using GitPod.io:
 
-Observability helps modern software teams:
+This is how I set up my environment:
+(I am using gitpod.io for editing)
 
-* Deliver high-quality software at scale
-* Build a sustainable culture of innovation
-* Optimize investments in cloud and modern tools
-* See the real-time performance of their digital business 
+1. fork the repo to your own github account
+2. prepend `gitpod.io#` to the beginning of your github url. Mine becomes: `https://gitpod.io#github.com/brentley/eks-workshop`
+3. once gitpod has started, in the terminal, run `npm install && npm run theme`
+This will install the dependencies and clone the theme submodule.
 
-This workshop provides an introduction to the core concept of Observability, walks you through instrumenting an application with New Relic APM, and details how to visualize your application's telemetry data using New Relic One Dashboards.
+From here, you can use the online IDE to edit /content/chapter/filename.md...
+If you want to preview your edits, in the terminal, run:
+`npx hugo server`.
+That will start the local hugo server.
 
-You can access the workshop by clicking the link below:
+A dialog box will pop up telling you "A service is listening on port 1313, but is not
+exposed." -- press the expose button. After that, choose "open browser" to get a new
+tab with your preview site. As you save edits, this tab should refresh.
 
-https://newrelic.awsworkshop.io/
+When you're happy with your edits, commit, push, and open a pull request to the upstream
+repo's main branch. Once merged, the preview site (linked above) will be refreshed.
+
+#### On a Mac:
+Install Hugo:
+`brew install hugo`
+
+#### On Linux:
+  - Download from the releases page: https://github.com/gohugoio/hugo/releases/tag/v0.64.1
+  - Extract and save the executable to `/usr/local/bin`
+
+#### Clone this repo:
+From wherever you checkout repos:
+`git clone git@github.com:aws-samples/eks-workshop.git` (or your fork)
+
+#### Clone the theme submodule:
+`cd eks-workshop`
+
+`git submodule init` ;
+`git submodule update`
+
+#### Install Node.js and npm:
+You can follow instructions from npm website: https://www.npmjs.com/get-npm
+
+#### Install node packages:
+`npm install`
+
+#### Run Hugo locally:
+`npm run server`
+or
+`npm run drafts` to see stubbed in draft pages.
+
+`npm run build` will build your content locally and output to `./public/`
+
+`npm run test` will test the built content for bad links
+
+#### View Hugo locally:
+Visit http://localhost:8080/ to see the site.
+
+#### Making Edits:
+As you save edits to a page, the site will live-reload to show your changes.
+
+#### Auto Deploy:
+Any commits to main will auto build and deploy in a couple of minutes. You can see the currently
+deployed hash at the bottom of the menu panel.
+
+Any commits to a branch will auto build and deploy in a couple of minutes to a custom route named with the branch name. You can see the currently
+deployed hash at the bottom of the menu panel.
+An example is the "jenkinsworld" branch would be deployed to https://eksworkshop.com/jenkinsworld/
+
+note: shift-reload may be necessary in your browser to reflect the latest changes.
+
+
