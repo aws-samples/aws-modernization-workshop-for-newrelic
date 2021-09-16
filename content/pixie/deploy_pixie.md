@@ -9,7 +9,7 @@ draft: false
 
 Pixie can be deployed alongside New Relic's Kubernetes Intgeration using the New Relic One guided install:
 
-* Navigate to your [New Relic One homepage](https://one.newrelic.com)
+* Navigate to your [New Relic One homepage](https://one.newrelic.com/?utm_source=devrel&utm_medium=event&utm_campaign=global-fy22-q2-k8s-pixie-content-workshop&utm_content=workshop)
 * Click on the green **Add more data** button at the top right hand side of your screen
 
 ![GuidedInstall](/images/pixie/add-more-data.png)

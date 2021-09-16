@@ -5,6 +5,10 @@ weight: 5
 draft: false
 ---
 
+{{% notice note %}}
+You will need a New Relic account. If you’re not already using New Relic, [sign up here](https://newrelic.com/signup?utm_source=devrel&utm_medium=event&utm_campaign=global-fy22-q2-k8s-pixie-content-workshop&utm_content=workshop) to get free, forever access. 
+{{% /notice %}}
+
 To get ready to use Pixie to debug an application on a Kubernetes cluster, we will deploy a demo microservices app named **TinyHat.me**, a simple API that provides virtual hats.
 
 ### S3 Bucket
@@ -12,6 +16,10 @@ Click [here](https://console.aws.amazon.com/s3/home) to access the S3 console.
 
 #### Creating the bucket
 Click `Create bucket`.
+
+{{% notice warning %}}
+Bucket names are unique per AWS region.  You will need to come up with unique name for your bucket.  The bucket name used in this workshop is for example purposes only.
+{{% /notice %}}
 
 1. Name your bucket in the `Bucket name` field. (Example: `tinyhat`)
 2. Edit the Public Access settings to match the configuration below:
@@ -42,11 +50,17 @@ On the S3 console, click on the newly created S3 bucket by identifying it with t
 ![](/images/cYq2MYc.png)
 
 ### Getting Secrets
-Head over to [the `My Security Credentials` page](https://console.aws.amazon.com/iam/home?#/security_credentials)
+Head over to your [IAM users page](https://console.aws.amazon.com/iamv2/home?#/users) and click on the name of your user:
 ![](/images/pixie/0-IAM.png)
-Click `Create Access Key` and save your access key ID and secret if you don't already don't have access.
 
+Click on the *Security credentials* tab:
 ![](/images/pixie/0-IAM-2.png)
+
+Click on the *Create access key* button:
+![](/images/pixie/0-IAM-3.png)
+
+Download your credentials:
+![](/images/pixie/0-IAM-4.png)
 
 
 Finally, modify these commands and enter them in your terminal to set the environment variables for secrets. Use the same terminal window to proceed to the next step.
