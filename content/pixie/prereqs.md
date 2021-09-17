@@ -11,44 +11,6 @@ You will need a New Relic account. If you’re not already using New Relic, [sig
 
 To get ready to use Pixie to debug an application on a Kubernetes cluster, we will deploy a demo microservices app named **TinyHat.me**, a simple API that provides virtual hats.
 
-### S3 Bucket
-Click [here](https://console.aws.amazon.com/s3/home) to access the S3 console.
-
-#### Creating the bucket
-Click `Create bucket`.
-
-{{% notice warning %}}
-Bucket names are unique per AWS region.  You will need to come up with unique name for your bucket.  The bucket name used in this workshop is for example purposes only.
-{{% /notice %}}
-
-1. Name your bucket in the `Bucket name` field. (Example: `tinyhat`)
-2. Edit the Public Access settings to match the configuration below:
-
-![](/images/u6ZrfvH.png)
-3. Leave all other settings as deafult and click `Create bucket`.
-
-#### Allowing public access
-On the S3 console, click on the newly created S3 bucket by identifying it with the name you assigned it to. (Example: `tinyhat`)
-
-1. Click on `Permissions` and scroll down to `Bucket policy`.
-2. Click `Edit` and paste the below policy in the editor, **remembering to replace `tinyhat` with your actual bucket name, if it differs**
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "AddPerm",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::tinyhat/*"
-        }
-    ]
-}
-```
-3. Click `Save changes`. If you configured your bucket correctly, you should see the labels `Publicly accessible` and Access labeled as `Public`.
-![](/images/cYq2MYc.png)
-
 ### Working with EKS
 
 Lets download and deploy the Tiny Hats Application. 
