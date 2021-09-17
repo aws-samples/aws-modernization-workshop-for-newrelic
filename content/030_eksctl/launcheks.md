@@ -35,7 +35,7 @@ If you do see the correct role, proceed to next step to create an EKS cluster.
 `eksctl` version must be 0.38.0 or above to deploy EKS 1.20, [click here](/030_eksctl/prerequisites) to get the latest version.
 {{% /notice %}}
 
-Create an eksctl deployment file (eksworkshop.yaml) use in creating your cluster using the following syntax:
+Create an eksctl deployment file (tinyhats.yaml) use in creating your cluster using the following syntax:
 
 ```bash
 cat << EOF > tinyhats.yaml
