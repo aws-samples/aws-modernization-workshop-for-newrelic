@@ -49,26 +49,6 @@ On the S3 console, click on the newly created S3 bucket by identifying it with t
 3. Click `Save changes`. If you configured your bucket correctly, you should see the labels `Publicly accessible` and Access labeled as `Public`.
 ![](/images/cYq2MYc.png)
 
-### Getting Secrets
-Head over to your [IAM users page](https://console.aws.amazon.com/iamv2/home?#/users) and click on the name of your user:
-![](/images/pixie/0-IAM.png)
-
-Click on the *Security credentials* tab:
-![](/images/pixie/0-IAM-2.png)
-
-Click on the *Create access key* button:
-![](/images/pixie/0-IAM-3.png)
-
-Download your credentials:
-![](/images/pixie/0-IAM-4.png)
-
-
-Finally, modify these commands and enter them in your terminal to set the environment variables for secrets. Use the same terminal window to proceed to the next step.
-``` 
-export S3_ID=[AWS KEY ID]
-export S3_SECRET=[AWS SECRET KEY]
-```
-
 ### Working with EKS
 
 Lets download and deploy the Tiny Hats Application. 
@@ -126,7 +106,7 @@ kubectl get services
 Export the URLs associated with the `Gateway-Service` by running. Make sure to replace `<YOUR_DATA_GOES_HERE>` with your Gateway Service `EXTERNAL-IP` from above.
 
 ```bash
-export GATEWAYSERVICE = <YOUR_DATA_GOES_HERE>
+export GATEWAYSERVICE=<YOUR_GATEWAY_GOES_HERE>
 ```
 
 Try pasting the URL for `Frontend-Service` in the browser. You should be greeted with the wonderful face of Bob Ross. Keep this URL handy as you will need it later in the workshop. 
