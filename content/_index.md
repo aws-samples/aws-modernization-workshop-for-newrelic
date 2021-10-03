@@ -8,4 +8,4 @@ weight: 1
 
 ![EKS](images/pixie/0-pixie.png)
 
-In this workshop, we will explore troubleshooting issues in an EKS cluster using Pixie.
+In this workshop, we will explore troubleshooting issues in an EKS cluster using Pixie and New Relic One.

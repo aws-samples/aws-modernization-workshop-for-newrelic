@@ -1,5 +1,5 @@
 ---
-title: "Using Pixie"
+title: "Using Pixie with New Relic One"
 date: 2021-5-01T09:00:00-00:00
 weight: 20
 draft: false
