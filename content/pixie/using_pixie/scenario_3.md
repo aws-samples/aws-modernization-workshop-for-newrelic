@@ -58,6 +58,8 @@ Looking at the **REQ_PATH**, we can now identify that the slow request is to the
 #### Flamegraphs in Pixie
 We are going to use Pixie's Always-On Profiling feature to investigate this slowdown, using a flamegraph to identify a performance issue within the application code.
 
+> originally from [Pixie Documentation](https://docs.px.dev/tutorials/pixie-101/profiler/)
+
 Every ~10ms, the Pixie profiler samples the current stack trace on each CPU. The stack trace includes the function that was executing at the time of the sample, along with the ancestor functions that were called to get to this point in the code.
 
 The collected samples are aggregated across a larger 30 second window that includes thousands of stack traces. These stack traces are then grouped by their common ancestors. At any level, the wider the stack, the more often that function appeared in the stack traces. Wider stack traces are typically of more interest as it indicates a significant amount of the application time being spent in that function.
