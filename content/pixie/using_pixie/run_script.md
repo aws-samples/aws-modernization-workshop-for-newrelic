@@ -5,7 +5,7 @@ weight: 21
 draft: false
 ---
 
-Let's use Pixie's Live UI to run a built-in PxL script.
+Let's use New Relic One's Live Debugging with Pixie to run a built-in PxL script.
 
 ### Run a PxL Script
 
