@@ -103,7 +103,7 @@ Run the below command in you Cloud9 terminal. We used the name `wHy tHiS haT` be
 curl --location --request POST ${GATEWAYSERVICE}/add --form 'name="wHy tHiS haT"' --form 'image=@"/home/ec2-user/environment/tinyhats/badhat.png"'
 ```
 
-Now, switch back to your New Relic One Pixie dashboard and filter take a look at `upload-service` using `px/service_stats`.
+Now, switch back to your New Relic One Pixie dashboard and take a look at `upload-service` using `px/service_stats`.
 > **Optional:** Try filtering for the **REQ_PATH** of `/upload` to receive less results!
 
 There is one clear difference between `upload-service` and the other two - all the codes are **200**! This service is happy and healthy and is not erroring out. But, we still need to collect some evidence to be sure that **it is not storing the hat style incorrectly.**

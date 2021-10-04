@@ -1,5 +1,5 @@
 ---
-title: "Using Pixie"
+title: "Using Pixie with New Relic One"
 date: 2021-5-01T09:00:00-00:00
 weight: 20
 draft: false
@@ -14,4 +14,4 @@ This tutorial will demonstrate the use of PxL scripts to query telemetry data au
 
 Pixie comes with many [pre-built PxL scripts](https://github.com/pixie-labs/pixie/tree/main/src/pxl_scripts). These scripts are executed by the Pixie platform using the web-based Live UI, CLI or API.
 
-This tutorial will demonstrate using the Live UI.
+This tutorial will demonstrate using New Relic One's Pixie Integration.

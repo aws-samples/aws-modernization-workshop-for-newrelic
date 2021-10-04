@@ -5,7 +5,7 @@ weight: 60
 ---
 # New Relic One and Pixie
 
-In this chapter, we will deploy New Relic's Pixie to monitor an application on a Kubernetes cluster.
+In this chapter, we will deploy Pixie to monitor an application on a Kubernetes cluster. Pixie is a CNCF sandbox project and was originally created and contributed by New Relic, Inc. 
 
 ![px_cluster](/images/pixie/px_cluster.png)
 
